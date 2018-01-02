@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>divcss5导航条</title>
+<!--* html注释：DIV CSS导航条CSS样式 * -->
+<style type="text/css">
+<!--
+#nav{width:100%;background:#666666;color:#FFFFFF; font-family:黑体;
+ text-align:center; font-size:13px; font-weight:bold;}
+
+#nav a,span {border-left:#CCCCCC 1px solid; display:inline-block;
+ height:40px; line-height:40px; padding:0px 10px; margin-left:-8px;}
+
+#nav a:link,a:visited,a:active{ text-decoration:none; color:#FFFFFF;}
+
+#nav a:hover { background:#CCCCCC;}
+
+
+
+
+-->
+*{
+ margin: 0px;
+    padding: 0px;
+}
+
+.divcss5{ width:400px;padding:10px;border:1px solid #F00}
+.divcss5_left{ float:left;width:150px;border:1px solid #00F;height:50px}
+.divcss5_right{ float:right;width:150px;border:1px solid #00F;height:50px}
+.clear{ clear:both}
+    .div1{
+
+
+        width: 400px;
+        height: 400px;
+        border: 1px solid green;
+        display: inline-block;
+
+
+
+    }
+    .div2,.div3{
+        width:  50px;
+        height: 50px;
+        border: 1px solid red ;
+          display: inline-block;
+
+
+    }
+    .div2{
+        float:left;
+
+    }
+
+    .div3{
+        float:right;
+    }
+     .div3-1{
+         width:  100px;
+        height: 100px;
+            display: inline-block;
+    }
+
+    .div4{
+         border: 1px solid blueviolet ;
+          width:  400px;
+          height: 400px;
+
+         display: inline-block;
+    }
+</style>
+</head>
+<body>
+<!--
+<div id="nav">
+<a href="http://www.divcss5.com/">DIVCSS5</a>
+<a href="http://www.divcss5.com/">CSS</a>
+<a href="http://www.divcss5.com/html/">Html入门基础</a>
+<a href="http://www.divcss5.com/rumen/">CSS入门</a>
+<a href="http://www.divcss5.com/css-hack/">CSS hack</a>
+<a href="http://www.divcss5.com/css-tool/">CSS工具</a>
+<a href="http://www.divcss5.com/template/">DIV+CSS模块</a>
+<a href="http://www.divcss5.com/shili/">DIV+CSS实例</a>
+<a href="http://www.divcss5.com/shouce/">CSS手册</a>
+<a href="http://www.divcss5.com/css-editor.html"
+ title="在线CSS编辑器，在线DIV+CSS编辑器">CSS编辑器</a>
+<span>&nbsp;</span>
+</div>
+-->
+
+<div class="divcss5">
+    <div class="divcss5_left">布局靠左浮动</div>
+    <div class="divcss5_right">布局靠右浮动</div>
+    <div class="clear"></div><!-- html注释：清除float产生浮动 -->
+</div>
+
+<div class="div1" >
+
+    <div class="div2">div2</div>
+    <div class="div3">div3</div>
+    <div class="div3-1">div3-1</div>
+
+</div>
+
+<div class="div4" >div4</div>
+
+
+</div>
+
+
+
+<div style="border:1px solid blue; height:20px;">
+    <div style="display: inline-block; border:1px solid red">
+        <button>呵呵 1</button>
+    </div>
+    <div style="display:inline-block; border:1px solid #000000">
+      <div style="border:1px solid green">
+          <button style="float:left;">呵呵—— 1</button>
+          <button style="float:left;">呵呵—— 2</button>
+          <div style="clear:both;"></div>
+      </div>
+    </div>
+  </div>
+
+
+<div style="border:1px solid blue; ">
+    <div style="display: inline-block; border:1px solid red; float:left">
+      <button>呵呵 1</button>
+    </div>
+    <div style="display:inline-block; border:1px solid #000000;  float:left">
+      <div style="border:1px solid green">
+          <button style="float:left;">呵呵—— 1</button>
+          <button style="float:left;">呵呵—— 2</button>
+          <div style="clear:both;"></div>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+<div style="border:1px solid blue; height:20px;">
+    <div style="display: inline-block; border:1px solid red;">
+      <button>呵呵 1</button>
+    </div>
+    <div style="display:inline-block; border:1px solid #000000;">
+      <div style="border:1px solid green">
+          <button>没有浮动</button>
+          <button style="float:left;">呵呵—— 1</button>
+          <button style="float:left;">呵呵—— 2</button>
+          <div style="clear:both;"></div>
+      </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Laravel-简洁、优雅的PHP开发框架(PHP Web Framework)。- Laravel中文网（Laravel中国社区）</title>
+    <meta name="description" content="Laravel是一套简洁、优雅的PHP Web开发框架(PHP Web Framework) -- Laravel中文网">
+    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/9.0.0/styles/vs.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.min.css?1508333069353">
+    <script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-5399482037315154.js"></script>
+    <script>var _hmt = _hmt || [];</script>
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <link rel="preload" href="https://adservice.google.com.hk/adsid/integrator.js?domain=www.golaravel.com" as="script">
+    <script type="text/javascript"
+            src="https://adservice.google.com.hk/adsid/integrator.js?domain=www.golaravel.com"></script>
+    <link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.golaravel.com" as="script">
+    <script type="text/javascript"
+            src="https://adservice.google.com/adsid/integrator.js?domain=www.golaravel.com"></script>
+    <link rel="prefetch" href="https://securepubads.g.doubleclick.net/static/3p_cookie.html">
+
+    <link rel="stylesheet" href="/static/css/index.css" />
+</head>
+<body class="home-template">
+
+{% include 'header.html' %}
+
+<section class="content-wrap">
+    <div class="container">
+
+        <div class="row">
+
+
+            <main class="col-md-8 main-content">
+                  {%  for v in videos %}
+                <article class="post">
+                     <div class="featured-media"><a href="/video/detail/{{v.store_path}}">
+
+                        <video src="/static/{{v.store_path}}" controls="controls" width="200" height="100" >
+                        your browser does not support the video tag
+                        </video>
+
+                    </a></div>
+                     <div class ="post-rightbar">
+                        <div class="post-head"><h1 class="post-title"><a
+                                href=""></a></h1>
+                            <div class="post-meta"><span class="author">名称:{{v.filename}} <a href=""
+                                                                              target="_blank"></a></span> •
+                                <time class="post-date" datetime="2017年02月20日" title="2017年02月20日">2017年02月20日</time>
+                            </div>
+                        </div>
+
+                        <div class="post-content">
+                            <p>描述：{{v.description}} </p>
+                            <p></p></div>
+
+                        <div class="post-permalink"><div
+                                class="btn btn-default">浏览数：{{ v.num_views }}</div></div>
+                        <footer class="post-footer clearfix"></footer>
+
+                     </div>
+                </article>
+                  {% endfor %}
+
+
+            </main>
+
+
+        <!--
+            <nav class="pagination" role="navigation"><span class="page-number">第 1 页 / 共 7 页</span> <a class="older-posts" href="/page/2/"><i class="fa fa-angle-right"></i></a></nav>
+        -->
+            <aside class="col-md-4 sidebar">
+                <div class="widget"><h4 class="title">社区</h4>
+                    <div class="content community"><p>QQ群：462694081</p>
+                        <p><a href="http://wenda.golaravel.com/" title="Laravel中文网问答社区" target="_blank"
+                              onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '问答社区'])"><i
+                                class="fa fa-comments"></i> 问答社区</a></p></div>
+                </div>
+
+
+
+                <div class="widget"><h4 class="title">推荐教程</h4>
+                    <div class="content download"><a href="" class="btn btn-default btn-block"
+                                                     onclick=""> Go Go学英语
+                        </a></div>
+                </div>
+                <div class="widget"><h4 class="title">本月热门</h4>
+                    <a href=""     class="btn btn-default btn-block" target="_blank"> Go Go学英语</a>
+
+                    <a href="" class="btn btn-default btn-block"  target="_blank">培生幼儿英语</a>
+                    <a href="" class="btn btn-default btn-block" target="_blank">巧虎</a>
+
+                    <a href="" class="btn btn-default btn-block"  target="_blank">朵拉</a>
+
+                    <a href=""  class="btn btn-default btn-block" target="_blank"> </a>
+
+
+
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+{% for item in items %}
+    {# Each "contact" is a Contact model object. #}
+    {{ item.full_name|upper }}<br />
+    ...
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if items.has_previous %}
+            <a href="?page={{ items.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ items.number }} of {{ items.paginator.num_pages }}.
+        </span>
+
+        {% if items.has_next %}
+            <a href="?page={{ items.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+
+<div class="body-register" style="border-radius:0 0 5px 0;">
+    <div class="step-box"><span class="step step-1 step-active">1 填写手机号</span><span> &gt; </span><span
+            class="step         step-2">2 填写基本资料</span></div>
+
+    <div class="box-register" style="display:none;">
+        <div class="err-msg"></div>
+
+        <div class="pr"><input type="text" placeholder="用户名" class="username"></div>
+        <div class="pr"><input type="password" placeholder="确认码" class="rgcode"></div>
+        <div class="pr"><input type="password" placeholder="密码" class="rgpwd"></div>
+
+        <div>
+            <div class="btn btn-register pub-icons pub-btn pub-btn-valid"><span>下一步</span><span
+                    style="display:none;"><img src="/images/loading.gif">正在注册</span></div>
+        </div>
+    </div>
+
+    <div class="box-register-detail" style="display:none;">
+        <div class="err-msg"></div>
+        <div class="pr"><input type="text" placeholder="昵称（10个汉字以内）" maxlength="10" class="nick"></div>
+        <div class="pr"><input type="radio" name="rgsex" class="sex" value="false" checked="">女 <input type="radio"
+                                                                                                       name="rgsex"
+                                                                                                       class="sex"
+                                                                                                       value="true">男
+        </div>
+
+
+
+        <div class="box-rgcity">
+            <select class="rgpro" style="width:49%;">
+                <option value="">请选择</option>
+                <option value="北京">北京</option>
+                <option value="天津">天津</option>
+                <option value="河北">河北</option>
+                <option value="山西">山西</option>
+                <option value="内蒙古">内蒙古</option>
+                <option value="辽宁">辽宁</option>
+                <option value="吉林">吉林</option>
+                <option value="黑龙江">黑龙江</option>
+                <option value="上海">上海</option>
+                <option value="江苏">江苏</option>
+                <option value="浙江">浙江</option>
+                <option value="安徽">安徽</option>
+                <option value="福建">福建</option>
+                <option value="江西">江西</option>
+                <option value="山东">山东</option>
+                <option value="河南">河南</option>
+                <option value="湖北">湖北</option>
+                <option value="湖南">湖南</option>
+                <option value="广东">广东</option>
+                <option value="广西">广西</option>
+                <option value="海南">海南</option>
+                <option value="重庆">重庆</option>
+                <option value="四川">四川</option>
+                <option value="贵州">贵州</option>
+                <option value="云南">云南</option>
+                <option value="西藏">西藏</option>
+                <option value="陕西">陕西</option>
+                <option value="甘肃">甘肃</option>
+                <option value="青海">青海</option>
+                <option value="宁夏">宁夏</option>
+                <option value="新疆">新疆</option>
+                <option value="香港">香港</option>
+                <option value="澳门">澳门</option>
+                <option value="台湾">台湾</option>
+            </select>
+            <select class="rgcity" style="width:49%;">
+                <option value="">请选择</option>
+            </select>
+        </div>
+
+        <div class="pr"><textarea placeholder="签名档（100个汉字以内）" maxlength="100" class="sign"></textarea></div>
+
+        <div>
+            <div class="btn btn-accomplish pub-icons pub-btn pub-btn-valid"><span>提交资料</span><span
+                    style="display:none;"><img src="/images/loading.gif">正在提交</span></div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(".reg-btn-a").click(function () {
+
+                $(".box-register").show();
+
+             }
+
+    );
+
+</script>
+</body>
+</html>

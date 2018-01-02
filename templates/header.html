@@ -1,0 +1,92 @@
+<header class="main-header"
+        style="background-image: url(http://image.golaravel.com/5/c9/44e1c4e50d55159c65da6a41bc07e.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12"><h1><span class="hide"></span>Baby English</h1>
+                <h2 class="hide"></h2><img
+                        src="http://image.golaravel.com/e/b0/4e4bd788405aab87f03d26edc4ab4.png" alt="Laravel"
+                        class="hide"></div>
+            <div class="col-xs-12 hidden-xs hidden-sm">
+                <a href="https://docs.golaravel.com/docs/5.4/"
+                   class="btn btn-default btn-doc" target="_blank">5.4 中文文档</a>
+                <a href="https://docs.golaravel.com/docs/5.3/" class="btn btn-default btn-doc" target="_blank">5.3
+                    中文文档</a>
+                <a href="https://docs.golaravel.com/docs/5.2/" class="btn btn-default btn-doc"
+                   target="_blank">5.2 中文文档</a>
+                <a href="https://docs.golaravel.com/docs/5.1/"
+                   class="btn btn-default btn-doc" target="_blank">5.1
+                    中文文档</a>
+                <a href="https://docs.golaravel.com/docs/5.0/" class="btn btn-default btn-doc"
+                   target="_blank">5.0 中文文档</a>
+                <a href="https://docs.golaravel.com/docs/4.2/"
+                   class="btn btn-default btn-doc" target="_blank">4.2
+                    中文文档</a>
+                <a href="https://docs.golaravel.com/docs/4.1/" class="btn btn-default btn-doc"
+                   target="_blank">4.1 中文文档</a>
+                <a href="https://docs.golaravel.com/docs/4.0/"
+                   class="btn btn-default btn-doc" target="_blank">4.0
+                    中文文档</a>
+                <a href="https://lumen.golaravel.com/docs/" class="btn btn-default btn-doc"
+                   target="_blank">Lumen 中文文档</a></div>
+        </div>
+    </div>
+</header>
+
+<nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse"
+                                                 data-target="#main-menu"><span class="sr-only">Toggle navigation</span> <i
+                        class="fa fa-bars"></i></span></div>
+                <li class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        <li role="presentation" style="font-weight: bold"><a href="/" title="首页">首页</a></li>
+                        <li role="presentation" style="font-weight: bold"><a href="" title="学习视频"
+                                                   target="_blank"
+                                                   onclick="">学习视频
+                            </a></li>
+                        <li role="presentation" style="font-weight: bold"><a href=""
+                                                                             title="看图说话" target="_blank"
+                                                                             onclick="">看图说话
+                            </a></li>
+                        <li role="presentation" style="font-weight: bold"><a href="" title=""
+                                                   target="_blank"
+                                                   onclick="">
+                            </a></li>
+                        <li role="presentation" style="font-weight: bold"><a href="" title="" target="_blank"
+                                                   onclick="">
+                            </a></li>
+                        <li role="presentation" style="font-weight: bold"><a href="" title="我们"
+                                                   target="_blank"
+                                                   onclick="">
+                            我们</a></li>
+                        <li role="presentation" style="font-weight: bold"><a href="" title="问答社区" target="_blank"
+                                                   onclick="">问答社区</a>
+                        </li>
+
+                         <li role="presentation" style="font-weight: bold;display: none">
+                             <a href="/logout/" class="exit" title="退出登录" onclick="">退出登录</a>
+                        </li>
+                       {% if  username %}
+                           <li>
+                             <a href="javascript:void(0)" class="reg-btn-a" id="reg-link-a" style="font-weight: bold">{{ username }}</a>
+                           </li>
+                            <li>
+                                <a href="/logout/" class="logout-btn-a" id="logout-link-a" style="font-weight: bold">退出登录</a>
+                           </li>
+                       {% else %}
+                          <li>
+                                <a href="/login/" class="login-btn-a" id="login-link-a" style="font-weight: bold">登录</a>
+                           </li>
+
+                            <li>
+                                <a href="/register/" class="reg-btn-a" id="reg-link-a" style="font-weight: bold">注册</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

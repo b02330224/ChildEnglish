@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Video.js | HTML5 Video Player</title>
+    <link href="http://vjs.zencdn.net/5.0.2/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/5.0.2/video.js"></script>
+     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered " controls preload="none" width="640" height="264" poster="http://vjs.zencdn.net/v/oceans.png" data-setup="{}">
+    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+    <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+    <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+    <track kind="captions" src="../shared/example-captions.vtt" srclang="en" label="English"></track>
+    <!-- Tracks need an ending tag thanks to IE9 -->
+    <track kind="subtitles" src="../shared/example-captions.vtt" srclang="en" label="English"></track>
+    <!-- Tracks need an ending tag thanks to IE9 -->
+
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+
+<script>
+
+
+     var myPlayer = videojs("example_video_1",   {
+                    controls: true,
+
+                    preload: "auto",
+                     controlBar: {
+                            captionsButton: true,
+                            chaptersButton : true,
+                            liveDisplay:true,
+                            playbackRateMenuButton: false,
+                            subtitlesButton:true,
+                            remainingTimeDisplay: true,
+                            progressControl: true,
+                            volumeMenuButton: {
+                                    inline: false,
+                                    vertical: true
+                                    },//竖着的音量条
+                                    fullscreenToggle: true
+                                    }
+                          },function () {
+                      //$(".vjs-control-bar").prepend('<button class="vjs-control" id="danmu_send_opt">button2</button>');
+                        /*var newbtn = document.createElement('btn');
+                        newbtn.innerHTML = '<button class="vjs-control" id="downloadButton">button1</button>';
+                        var controlBar = document.getElementsByClassName('vjs-control-bar')[0];
+                        insertBeforeNode = document.getElementsByClassName('vjs-fullscreen-control')[0];
+                        controlBar.insertBefore(newbtn,insertBeforeNode);
+                    */
+
+         }
+                   );
+
+     myPlayer.on('play', function () {
+           console.log('begin');
+       });
+       myPlayer.on('pause', function () {
+           console.log('pause');
+       });
+       myPlayer.on('ended', function () {
+           console.log('end');
+       });
+
+
+       myPlayer.on('timeupdate', function () {
+    // 如果 currentTime() === duration()，则视频已播放完毕
+   /* if (myPlayer.duration() != 0 && myPlayer.currentTime() === myPlayer.duration()) {
+            console.log('complete');
+        }/*/
+                console.log('timeupdate');
+    });
+  $(".vjs-control-bar").prepend('<button class="vjs-control" id="danmu_send_opt">button2</button>');
+
+    function examplePlugin(options) {
+
+        var backplayBtn = document.createElement('div');
+        backplayBtn.className = 'vjs-backplay-button vjs-menu-button vjs-control';
+        backplayBtn.innerHTML =
+            '<div>'
+            + '<i class="fa fa-step-backward">55555555</i>'
+            + '</div>';
+        myPlayer.controlBar.el().appendChild(backplayBtn);
+        myPlayer.controlBar.el().insertBefore(backplayBtn, myPlayer.controlBar.playToggle.el());
+        backplayBtn.onclick = function () {
+            myPlayer.pause();
+            myPlayer.currentTime(0);
+        };
+
+    };
+    videojs.plugin('examplePlugin', examplePlugin);
+    myPlayer.examplePlugin({exampleOption: true});
+
+     if (true) {
+         var n = 1;
+     }
+     console.log(n);//1
+
+     //注意
+     for (var i = 0; i < 10; ++i) {
+
+     }
+     console.log(i);//10
+
+</script>
+</body>
+</html>

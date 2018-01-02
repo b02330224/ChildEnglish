@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="video-js/video-js.css" rel="stylesheet" type="text/css">
+    <script src="video-js/video.js" type="text/javascript" charset="utf-8"></script>
+    <script src="video-js/ie8/videojs-ie8.js"></script>
+    <script src="video-js/videojs-contrib-hls.js"></script>
+    <script src="danmu/jquery-1.11.1.min.js"></script>
+    <script src="../../../../../桌面/tanmu/DanmuPlayer/src/js/jquery.danmu.js"></script>
+    <script type="text/javascript">
+        videojs.options.flash.swf = "video-js/video-js.swf";
+    </script>
+    <title>RtmpPlayerTest</title>
+</head>
+<body>
+<video id="example_video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1024"
+       height="768"
+       poster=""
+       data-setup='{ "html5" : { "nativeTextTracks" : false } }'>>
+    <source src="rtmp://live.hkstv.hk.lxdns.com/live/hks" type="rtmp/flv"/>
+    <!-- <source src="http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8" type="application/x-mpegURL" /> -->
+    <div id="danmu">
+    </div>
+    <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser
+        that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+
+</video>
+<div id="danmu">
+</div>
+<div class="text-center ctr">
+    <br>
+
+    <button type="button" onclick="resumer() ">弹幕开始/继续</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" onclick="pauser()">弹幕暂停</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    显示弹幕:<input type='checkbox' checked='checked' id='ishide' value='is' onchange='changehide()'> &nbsp;&nbsp;&nbsp;&nbsp;
+    弹幕透明度:
+    <input type="range" name="op" id="op" onchange="op()" value="100"> <br>
+    当前弹幕运行时间(分秒)：<span id="time"></span>&nbsp;&nbsp;
+    设置当前弹幕时间(分秒)： <input type="text" id="set_time" max=20/>
+    <button type="button" onclick="settime()">设置</button>
+
+    <br>
+
+    发弹幕:
+    <select name="color" id="color">
+        <option value="white">白色</option>
+        <option value="red">红色</option>
+        <option value="green">绿色</option>
+        <option value="blue">蓝色</option>
+        <option value="yellow">黄色</option>
+    </select>
+    <select name="size" id="text_size">
+        <option value="1">大文字</option>
+        <option value="0">小文字</option>
+    </select>
+    <select name="position" id="position">
+        <option value="0">滚动</option>
+        <option value="1">顶端</option>
+        <option value="2">底端</option>
+    </select>
+    <input type="textarea" id="text" max=300/>
+    <button type="button" onclick="send()">发送</button>
+</div>
+
+</body>
+<script type="text/javascript">
+    var player = videojs('example_video');
+</script>
+
+
+<script>
+    (function () {
+        $("#danmu").danmu({
+// left:$("#danmuarea").offset().left,
+// top:$("#danmuarea").offset().top,
+// height: 445,
+// width: 800,
+                left: 0,
+                top: 0,
+                height: "100%",
+                width: "100%",
+                zindex: 100,
+                speed: 30000,
+                opacity: 1,
+                font_size_small: 16,
+                font_size_big: 24,
+                top_botton_danmu_time: 6000
+            }
+        );
+    })(jQuery);
+
+
+    query();
+    timedCount();
+
+
+    var first = true;
+
+    function timedCount() {
+        $("#time").text($('#danmu').data("nowtime"));
+
+        t = setTimeout("timedCount()", 50)
+
+    }
+
+
+    function starter() {
+
+        $('#danmu').danmu('danmu_start');
+
+    }
+
+    function pauser() {
+
+        $('#danmu').danmu('danmu_pause');
+    }
+
+    function resumer() {
+
+        $('#danmu').danmu('danmu_resume');
+    }
+
+    function stoper() {
+        $('#danmu').danmu('danmu_stop');
+    }
+
+    function getime() {
+        alert($('#danmu').data("nowtime"));
+    }
+
+    function getpaused() {
+        alert($('#danmu').data("paused"));
+    }
+
+    function add() {
+        var newd =
+            {"text": "new2", "color": "green", "size": "1", "position": "0", "time": 60};
+
+        $('#danmu').danmu("add_danmu", newd);
+    }
+
+    function insert() {
+        var newd = {"text": "new2", "color": "green", "size": "1", "position": "0", "time": 50};
+        str_newd = JSON.stringify(newd);
+        $.post("stone.php", {danmu: str_newd}, function (data, status) {
+            alert(data)
+        });
+    }
+
+    function query() {
+        $.get("query.php", function (data, status) {
+            var danmu_from_sql = eval(data);
+            for (var i = 0; i < danmu_from_sql.length; i++) {
+                var danmu_ls = eval('(' + danmu_from_sql[i] + ')');
+                $('#danmu').danmu("add_danmu", danmu_ls);
+            }
+        });
+    }
+
+    function send() {
+        var text = document.getElementById('text').value;
+        var color = document.getElementById('color').value;
+        var position = document.getElementById('position').value;
+        var time = $('#danmu').data("nowtime") + 5;
+        var size = document.getElementById('text_size').value;
+        var text_obj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + '}';
+        $.post("stone.php", {danmu: text_obj});
+        var text_obj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + ',"isnew":""}';
+        var new_obj = eval('(' + text_obj + ')');
+        $('#danmu').danmu("add_danmu", new_obj);
+        document.getElementById('text').value = '';
+    }
+
+    function op() {
+        var op = document.getElementById('op').value;
+        $('#danmu').data("opacity", op);
+    }
+
+
+    function changehide() {
+        var op = document.getElementById('op').value;
+        op = op / 100;
+        if (document.getElementById("ishide").checked) {
+            jQuery('#danmu').data("opacity", op);
+            jQuery(".flying").css({
+                "opacity": op
+            });
+        } else {
+            jQuery('#danmu').data("opacity", 0);
+            jQuery(".flying").css({
+                "opacity": 0
+            });
+        }
+    }
+
+
+    function settime() {
+        var t = document.getElementById("set_time").value;
+        t = parseInt(t)
+        console.log(t)
+        $('#danmu').data("nowtime", t);
+    }
+</script>
+</html>

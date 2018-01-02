@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html><head><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><style class="vjs-styles-dimensions">
+      .video-box-mocoplayer-hls-video-dimensions {
+        width: 1280px;
+        height: 720px;
+      }
+
+      .video-box-mocoplayer-hls-video-dimensions.vjs-fluid {
+        padding-top: 56.25%;
+      }
+    </style>
+<meta charset="utf-8">
+<meta property="qc:admins" content="77103107776553571676375">
+<meta property="wb:webmaster" content="c4f857219bfae3cb">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta name="Keywords" content="">
+<meta name="Description" content="超酷的互联网、IT技术免费学习平台，创新的网络一站式学习、实践体验；服务及时贴心，内容专业、有趣易学。专注服务互联网工程师快速成为技术高手！">
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' *.imooc.com *.mukewang.com *.baidu.com *.sina.com.cn *.bootcss.com">
+
+<title>AsyncHttpClient实际应用-慕课网</title>
+
+
+
+<link rel="stylesheet" href="/static/lib/layer/1.6.0/skin/layer.css">
+
+<link rel="stylesheet" href="/static/moco/v1.0/dist/css/moco.min.css" type="text/css">
+<script type="text/javascript">
+  var OP_CONFIG={"module":"course","page":"video","userout":0,"usercaution":null,"userInfo":{"uid":5324501}};
+  var _msg_unread = 0;
+  var _not_unread = 0;
+  var _cart_num = 0;
+  var tplDef={
+	"url_space_u":"/space/u",
+	"url_space_index":"/space/index",
+    "url_space_course":"/space/course",
+    "myclub_rule":"/about/faq?t=3",
+    "url_course_qadetail":"/qadetail",
+    "media_id":"13057"
+  }
+  var seajsTimestamp="v=201710251720";
+  var courseName="Android网络框架—AsyncHttpClient和XUtils";
+    var isLogin = 1;
+  </script>
+
+
+
+<script type="text/javascript">
+var pageInfo = { mid : 13057 };
+var video_id= 12046;
+var course_id = 733;
+var chapter_id = 3585;
+var ispreview ='0';
+var videoTitle = "2-3 AsyncHttpClient实际应用";
+
+OP_CONFIG.page="video2.4";
+
+</script>
+
+
+<link rel="stylesheet" href="http://static.mukewang.com/static/css/??base.css,common/common-less.css?t=3,course/inc/course_common-less.css?t=4,common/pic-viewer-less.css,course/course_play-less.css,nanoscroller.css?v=201710251720" type="text/css">
+<script charset="utf-8" async="" src="http://www.imooc.com/static/lib/jquery/1.9.1/jquery.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/sea-modules/seajs/seajs-text/1.0.3/seajs-text.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/logic/common/common.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/base/util/string.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/logic/common/userinfo.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/logic/cart/cart.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/base/util/cookie.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/base/suggest/suggest.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/sea-modules/gallery/store/1.3.14/store.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/moco/v1.0/dist/js/moco.min.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/sea-modules/gallery/json/1.0.3/json.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/logic/chat/im.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/video2.4.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/lib/socket.io/1.3.5/socket.io.min.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/lib/mocoplayer/2.5.2/mocoplayer.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/jquery.nanoscroller.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/drag.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/animate-achievement.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/course_detail_common.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/common/verify-code.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/base/util/guideLayer.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/lib/layer/1.6.0/layer.min.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/lib/jquery/plugin/jquery.scrollbar.js?v=201710251720"></script><link charset="utf-8" rel="stylesheet" href="http://www.imooc.com/static/css/jquery.scrollbar.css?v=201710251720"><script charset="utf-8" async="" src="http://www.imooc.com/static/component/base/placeholder/placeholder.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/autocomplete.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/wiki-search.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/course_note.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/ajax-right-recommend.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/ajax-pl-list.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/ajax-otherscode-list.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/ajax-discuss-list.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/ajax-note-list.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/page/course/common/ajax-wiki-list.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/lib/dot/1.0.0/doT.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/base/util/paging.js?v=201710251720"></script><script charset="utf-8" async="" src="http://www.imooc.com/static/component/base/util/picViewer.js?v=201710251720"></script><link href="http://www.imooc.com/static/lib/mocoplayer/2.5.2/mocoplayer.css?v=2.4.3" rel="stylesheet" type="text/css"><script src="http://www.imooc.com/static/lib/mocoplayer/2.5.2/mocoplayer.html5.js?v=2.4.3" type="text/javascript"></script><script src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=419161"></script><link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style0_16.css?v=6aba13f0.css"><link href="http://www.imooc.com/static/lib/ueditor/themes/imooc/css/ueditor.css" type="text/css" rel="stylesheet"><script src="http://www.imooc.com/static/lib/ueditor/third-party/zeroclipboard/ZeroClipboard.js" type="text/javascript" defer="defer"></script></head>
+<body style="">
+
+
+<div id="header" class="course-detail-header">
+  <div class="cd-inner clearfix">
+      <ul class="l">
+        <li class="nv nv-goback"><a href="/learn/733" class="revert l"><i class="icon icon-left"></i></a></li>
+        <li class="nv nv-menu">
+          <a href="javascript:;" class="chaptername J-chaptername" data-id="13057" style="cursor:text;"><span>Android网络框架—AsyncHttpClie...</span><em>2-3 AsyncHttpClient实际应用</em></a>
+        </li>
+        <li class="nv nv-share bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1508985696659">
+          <!-- note:bdshare cannt user inner icon tag-->
+            <span>分享</span>
+            <a class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+            <a class="bds_qzone" data-cmd="qzone" href="#" title="分享到QQ空间"></a>
+            <a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+
+          <div style="display:none" id="coursePic"><img src="http://img.mukewang.com/59e716e2000167dc06000338-590-330.jpg"></div>
+        </li>
+
+      </ul>
+
+              <div id="login-area">
+            <ul class="clearfix logined">
+                <li class="shop-cart" id="shop-cart">
+                    <a href="http://order.imooc.com/pay/cart" class="shop-cart-icon" target="_blank">
+                        <span class="icon-shopping-cart js-endcart"></span>
+                        <span>购物车</span>
+                        <span class="shopping_icon js-cart-num" data-ordernum="0" data-cartnum="0" style="display: none">0</span>
+                    </a>
+                    <div class="my-cart" id="js-my-cart"><div class="cart-title-box clearfix">                                        <h2 class="l">我的购物车</h2>                                        <h5 class="r">已加入<span class="js-incart-num">0</span>门课程</h5>                                    </div>                                    <div class="cart-wrap">                                        <div class="clear-cart">                                            <span class="cartIcon icon-shopping-cart"></span>                                            <h3>购物车里空空如也</h3>                                            <div class="text">快去这里选购你中意的课程</div>                                            <p><a class="go-link" href="http://coding.imooc.com" target="_blank">实战课程</a></p>                                            <p><a class="go-link" href="http://www.imooc.com/course/program" target="_blank">职业路径</a></p>                                        </div>                                    </div>                                    <div class="more-box clearfix">                                        <div class="l show-box">                                            <span class="text"><a href="http://order.imooc.com/myorder" target="_blank">我的订单中心</a></span>                                        </div>                                        <a href="http://order.imooc.com/pay/cart" target="_blank" class="r moco-btn moco-btn-red go-cart">去购物车</a>                                    </div></div>
+                </li>
+
+                <li class="remind_warp">
+                    <i class="msg_remind" style="display: inline;"></i>
+                    <a target="_blank" href="/u/5324501/notices">
+                        <i class="icon-notifi"></i>
+                        <!-- <span class="msg_icon" style="display: none;"></span> -->
+                    </a>
+                </li>
+                <li class="set_btn user-card-box" id="header-user-card">
+                    <a id="header-avator" class="user-card-item" action-type="my_menu" href="/u/5324501/courses" target="_self"><img src="//img2.mukewang.com/user/591b05b300016ce701000100-40-40.jpg" width="40" height="40">
+                        <i class="myspace_remind" style="display: none;"></i>
+                        <span style="display: none;">动态提醒</span>
+                    </a>
+                    <div class="g-user-card"><div class="card-inner">                        <div class="card-top clearfix">                            <a href="/u/5324501" class="l"><img src="//img3.mukewang.com/591b05b300016ce701000100-100-100.jpg" alt="qq_越狱_3"></a>                            <div class="card-top-right-box l">                                <a href="/u/5324501"><span class="name text-ellipsis">qq_越狱_3</span></a>                                <div class="meta">                                    <a href="/u/5324501/experience">经验<b id="js-user-mp">311</b></a>                                    <a href="/u/5324501/credit">积分<b id="js-user-credit">0</b></a>                                </div>                            </div>                        </div>                        <div class="user-center-box">                            <ul class="clearfix">                                <li class="l"><a href="/u/5324501/courses" target="_blank"><span class="user-center-icon icon-tick"></span>我的课程</a></li>                                <li class="l">                                    <a href="http://order.imooc.com/myorder" target="_blank"><span class="user-center-icon icon-receipt"></span>订单中心</a>                                    <i id="js-usercard-coupon-icon" style="display: none;"></i>                                </li>                                <li class="l"><a href="/mall/index" target="_blank"><span class="user-center-icon icon-score_shop"></span>积分商城</a></li>                                <li class="l"><a href="/user/setbindsns" target="_blank"><span class="user-center-icon icon-set"></span>个人设置</a></li>                            </ul>                        </div><div class="card-history"><span class="history-item">                                                <span class="tit text-ellipsis">PHP中的会话控制</span>                                                <span class="media-name text-ellipsis">                                                    2-1Cookie简介                                                </span>                                                <i class="icon-clock"></i>                                                <a href="http://www.imooc.com/video/15851" class="continue" title="Cookie简介
+2-1Cookie简介">继续</a>                                            </span></div><div class="card-sets clearfix"><a href="/passport/user/logout?referer=http://www.imooc.com" class="l">安全退出</a></div>                    </div></div>
+                </li>
+            </ul>
+        </div>
+
+  </div>
+</div>
+
+<div id="studyMain">
+
+
+<div id="bgarea" class="video-con">
+    <div class="js-box-wrap" style="width: 100%; height: 272px;">
+        <div id="J_Box" class="course-video-box">
+            <div id="video-box" class="video-wrap" style="width:100%;height:100%"><div id="video-box-mocoplayer" class="mocoplayer"><div src="blob:http://www.imooc.com/bd8a806a-faa6-4d8c-bfa3-e7c94ddbc911" autobuffer="" preload="auto" class="video-js vjs-default-skin videoCentered vjs-controls-enabled vjs-workinghover vjs-user-active vjs-has-started video-box-mocoplayer-hls-video-dimensions vjs-paused" id="video-box-mocoplayer-hls-video" role="region" aria-label="video player"><video id="video-box-mocoplayer-hls-video_html5_api" class="vjs-tech" preload="auto" autobuffer="" src="blob:http://www.imooc.com/bd8a806a-faa6-4d8c-bfa3-e7c94ddbc911"> </video><div></div><div class="vjs-loading-spinner" dir="ltr"></div><div class="vjs-control-bar" dir="ltr" role="group"><button class="vjs-play-control vjs-control vjs-button vjs-paused" type="button" aria-live="polite"><span class="vjs-control-text">Play</span></button><div class="vjs-remaining-time vjs-time-control vjs-control"><div class="vjs-remaining-time-display" aria-live="off">00:09 / 32:11</div></div><div class="vjs-current-time vjs-time-control vjs-control"><div class="vjs-current-time-display" aria-live="off"><span class="vjs-control-text">Current Time</span> 00:09</div></div><div class="vjs-time-control vjs-time-divider"><div><span>/</span></div></div><div class="vjs-duration vjs-time-control vjs-control"><div class="vjs-duration-display" aria-live="off"><span class="vjs-control-text">Duration Time</span> 32:11</div></div><div class="vjs-progress-control vjs-control"><div tabindex="0" class="vjs-progress-holder vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="0.50" aria-valuemin="0" aria-valuemax="100" aria-label="progress bar" aria-valuetext="00:09"><div class="vjs-load-progress" style="width: 2.07109%;"><span class="vjs-control-text" style="left: 0%; width: 100%;"><span>Loaded</span>: 0%</span></div><div class="vjs-mouse-display" data-current-time="23:18" style="left: 1100px;"></div><div class="vjs-play-progress vjs-slider-bar" data-current-time="00:09" style="width: 0.5%;"><span class="vjs-control-text"><span>Progress</span>: 0%</span></div></div></div><div class="vjs-switchCdnLine-control vjs-control" title="线路选择"><div class="vjs-switchCdnLine-display imv2-line"></div></div><div class="vjs-volume-menu-button vjs-menu-button vjs-menu-button-inline vjs-control vjs-button vjs-volume-menu-button-horizontal vjs-vol-2" tabindex="0" role="button" aria-live="polite"><div class="vjs-menu"><div class="vjs-menu-content"><div tabindex="0" class="vjs-volume-bar vjs-slider-bar vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="46.25" aria-valuemin="0" aria-valuemax="100" aria-label="volume level" aria-valuetext="46.25%"><div class="vjs-volume-level" style="width: 46.25%;"><span class="vjs-control-text"></span></div></div></div></div><span class="vjs-control-text">Mute</span></div><div class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-control vjs-button" tabindex="0" role="menuitem" aria-live="polite" aria-expanded="false" aria-haspopup="true"><div class="vjs-menu" id="vjsMenu" role="presentation" style="visibility: visible;"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item" tabindex="-1" role="menuitem" aria-live="polite" style="color: rgb(147, 153, 159);">2.0x<span class="vjs-control-text"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitem" aria-live="polite" style="color: rgb(147, 153, 159);">1.75x<span class="vjs-control-text"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitem" aria-live="polite" style="color: rgb(147, 153, 159);">1.5x<span class="vjs-control-text"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitem" aria-live="polite" style="color: rgb(240, 20, 20);">1.25x<span class="vjs-control-text"></span></li><li class="vjs-menu-item" tabindex="-1" role="menuitem" aria-live="polite" style="color: rgb(147, 153, 159);">1.0x<span class="vjs-control-text"></span></li></ul></div><span class="vjs-control-text">Playback Rate</span><div class="vjs-playback-rate-value">1.25x</div></div><div class="vjs-setting-control vjs-set-control-button"><div class="vjs-set-button"></div></div><button class="vjs-fullscreen-control vjs-control vjs-button " type="button" aria-live="polite"><span class="vjs-control-text">Fullscreen</span></button></div><div class="chaptertitle" id="chapterId" style="visibility: hidden;">&nbsp;&nbsp;&nbsp;&nbsp;2-3 AsyncHttpClient实际应用</div><div class="vjs-set-menu-bg" id="setoverlay" style="visibility: hidden;"><div class="vjs-set-menu hd autoBtn" id="autoBtn0" style="background-color: rgb(240, 20, 20);">自动</div><div class="vjs-set-menu hd lBtn" id="lBtn1">普清</div><div class="vjs-set-menu hd mBtn" id="mBtn2">高清</div><div class="vjs-set-menu hd hBtn" id="hBtn3" style="cursor: default; color: rgb(77, 85, 93);">超清</div><div class="vjs-set-menu html5Btn" id="html5Btn">HTML</div><div class="vjs-set-menu flashBtn" id="flashBtn" style="cursor: default; color: rgb(77, 85, 93);">Flash</div><div class="vjs-set-menu confimBtn" id="confimBtn"></div><div class="vjs-set-menu cancelBtn" id="cancelBtn"></div><div class="vjs-set-menu closeBtn" id="closeBtn"></div></div><div class="mocoplayer-right-pause"></div></div></div></div>
+            <div class="next-box J_next-box hide">
+                <div class="next-box-inner">
+                                            <div class="course-tip-layer J-next-course" data-next-src="/video/13059">
+                            <h2>下一节课程： XUtils特性
+                                <span class="course-duration"> (01:16)</span>
+                            </h2>
+                            <div class="J-next-auto hide next-auto"><em>3</em> 秒后播放下一节</div>
+                            <div class="J-next-btn hide next-auto btn btn-green">下一节</div>
+                            <a href="/video/13057/0" class="review-course">重新观看</a>
+
+                            <div id="js-ques-box"></div>                        </div>
+
+                                    </div>
+            </div>
+        </div>
+    </div>
+    <!--此处结构为练习题，视频，编程公用的侧栏-->
+<div class="section-list" style="right: -360px;">
+    <div class="operator">
+        <div class="op chapter"><em class="icon-menu"></em>章节</div>
+        <div class="op notes"><em class="icon-note"></em>笔记</div>
+        <div class="op question"><em class="icon-addques"></em>提问</div>
+        <div class="op wiki"><em class="icon-wiki"></em>WIKI</div>
+    </div>
+    <div class="nano has-scrollbar">
+        <div class="nano-content" tabindex="0" style="right: -17px;">
+            <h3>Android网络框架—AsyncHttpClie...</h3>
+                        <ul>
+                <li class="sec-title">
+                    <span>第1章 课程介绍</span>
+                </li>
+                                                        <li data-id="13054">
+                                                <a href="/video/13054"><i class=""><em class="icon-half"></em></i><em class="icon-video"></em>1-1 常用网络框架介绍(03:51)</a>
+                                            </li>
+                                                </ul>
+                        <ul>
+                <li class="sec-title">
+                    <span>第2章 AsyncHttpClient介绍</span>
+                </li>
+                                                        <li data-id="13055">
+                                                <a href="/video/13055"><i class=""><em class="icon-nolearn"></em></i><em class="icon-video"></em>2-1 AsyncHttpClient原理(02:51)</a>
+                                            </li>
+                                                                            <li data-id="13056">
+                                                <a href="/video/13056"><i class=""><em class="icon-nolearn"></em></i><em class="icon-video"></em>2-2 AsyncHttpClient特性(03:39)</a>
+                                            </li>
+                                                                            <li data-id="13057">
+                                                <a href="/video/13057"><i class="">正在学<em class="icon-clock"></em></i><em class="icon-video"></em>2-3 AsyncHttpClient实际应用...(32:11)</a>
+                                            </li>
+                                                </ul>
+                        <ul>
+                <li class="sec-title">
+                    <span>第3章 XUtils介绍</span>
+                </li>
+                                                        <li data-id="13059">
+                                                <a href="/video/13059"><i class=""><em class="icon-nolearn"></em></i><em class="icon-video"></em>3-1 XUtils特性(01:16)</a>
+                                            </li>
+                                                                            <li data-id="13060">
+                                                <a href="/video/13060"><i class=""><em class="icon-nolearn"></em></i><em class="icon-video"></em>3-2 XUtils实际使用(33:55)</a>
+                                            </li>
+                                                </ul>
+                        <ul>
+                <li class="sec-title">
+                    <span>第4章 课程总结</span>
+                </li>
+                                                        <li data-id="13061">
+                                                <a href="/video/13061"><i class=""><em class="icon-nolearn"></em></i><em class="icon-video"></em>4-1 Android几种常用网络框架-...(01:30)</a>
+                                            </li>
+                                                </ul>
+
+        </div>
+    <div class="nano-pane" style="display: block;"><div class="nano-slider" style="height: 129px; transform: translate(0px, 141.348px);"></div></div></div>
+</div></div>
+
+<div class="maybe-wenda" id="maybe-wenda" style="display: none;">
+    <i class="icon-chat"></i>
+    <p class="text">你发的评论可能会是问题？<br>是否将他发到问答中</p>
+    <input class="btn ok" type="button" value="好的" id="wenda-ok">
+    <input class="btn no" type="button" value="不用" id="wenda-no">
+</div>
+</div>
+
+<div class="course-subcontainer clearfix">
+  <div class="course-left">
+      <ul class="course-menu course-video-menu clearfix js-course-menu" data-ower="all" data-sort="last" style="position: absolute; left: 0px;">
+    <li class="course-menu-item"><a class="active" href="javascript:void(0)" id="plMenu">评论</a></li>
+    <li class="course-menu-item"><a href="javascript:void(0)" id="qaMenu">问答</a></li>
+    <li class="course-menu-item"><a href="javascript:void(0)" id="noteMenu" class="">笔记</a></li>
+    <!--
+    <li class="course-menu-item"><a href="javascript:void(0)" id="wikiMenu">WIKI</a></li>
+    -->
+        </ul>
+<div id="disArea" class="lists-container list-wrap">
+    <div id="pl-content" class="list-tab-con" style="display: block;">
+        <div class="publish clearfix" id="discus-publish">
+            <div class="publish-wrap publish-wrap-pl">
+                <div class="pl-input-wrap clearfix">
+                    <a href="/u/5324501" class="user-head l">
+                        <img src="//img3.mukewang.com/591b05b300016ce701000100-100-100.jpg" alt="qq_越狱_3">
+                    </a>
+                    <div id="js-pl-input-fake" class="pl-input-inner l ipt-fake-error">
+                       <textarea id="js-pl-textarea" class="js-placeholder" placeholder="扯淡、吐槽、表扬、鼓励……想说啥就说啥！"></textarea>
+                       <span class="num-limit"><span id="js-pl-limit" class="limit-overflow">414</span>/300</span>
+                    </div>
+                    <div class="pl-input-btm input-btm clearfix">
+                        <div class="verify-code l"></div>
+                        <input type="button" id="js-pl-submit" class="r course-btn" value="发表评论">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="plLoadListData"><div class="pl-container"> <ul>   <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="/u/2699501/courses" target="_blank"><img width="40" height="40" src="//img3.mukewang.com/566d6eac0001ee6801000100-40-40.jpg" title="瞳劫"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="/u/2699501/courses" target="_blank">瞳劫</a> </div> <div class="pl-list-content">源代码也不给...</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 4天前</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="506798"><i class="icon-thumb-revert"></i>  <span>0</span></a> </div> </div> </li>  <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="/u/2699501/courses" target="_blank"><img width="40" height="40" src="//img3.mukewang.com/566d6eac0001ee6801000100-40-40.jpg" title="瞳劫"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="/u/2699501/courses" target="_blank">瞳劫</a> </div> <div class="pl-list-content">额，居然是eclipse</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 4天前</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="506790"><i class="icon-thumb-revert"></i>  <span>0</span></a> </div> </div> </li> </ul></div><div class="page pl-list-page"></div></div>
+    </div>
+    <div id="qa-content" class="list-tab-con" style="display:none">
+        <div id="qaLoadListData"><div class="sortlist"> 			<div class="ordertab clearfix"> 				<a href="javascript:void(0)" hidefocus="true" data-order="1" class="quealltab onactive">全部</a>				<a href="javascript:void(0)" hidefocus="true" data-order="2" class="quealltab ">精华</a>			</div>		</div><div class="answertabcon"></div><div class="page discuss-list-page"></div></div>
+    </div>
+    <div id="note-content" class="list-tab-con" style="display: none;">
+        <div id="noteLoadListData">
+        <div class="course-tool-bar clearfix js-select-state">			<div class="tool-left l js-all-state">		        <a href="javascript:;" class="sort-item active" data-sort="last">最新</a>		        <a href="javascript:;" class="sort-item" data-sort="sugg">点赞</a>	        </div>	        <div class="tool-right r">		        <div class="switch js-ower" data-sort="last">		    		<div class="switch-line"></div>		    		<div class="round js-lookme-round"></div>		  		</div>		        <span class="tool-item">只看我的</span>		    </div>		</div><div id="course_note" class="course_note"> <ul>  <li class="post-row js-find-txt" noteid="1931832"> <div class="notelist_headpic"> <a href="/u/5324501/courses" target="_blank"> <img src="//img1.mukewang.com/user/591b05b300016ce701000100-80-80.jpg" width="40" height="40"> </a> </div> <div class="notelist_content"> <div class="u_name"> <a href="/u/5324501/courses" target="_blank">qq_越狱_3</a> </div> <div class="js-notelist-content notelist-content mynote"> <pre>学习学习</pre> <div class="notelist-content-more"> <a href="javascript:;" class="js-toggle-content">[ 查看全文 ]</a> </div> </div> <div class="clearfix"> <a href="javascript:void(0);" class="sava_btn">保存</a> </div>   <div class="notelist-bottom clearfix"> <span title="1508985666" class="l timeago">28秒前</span> <div class="notelist-actions"> <textarea style="display:none;">学习学习</textarea>  <a title="编辑此条笔记" href="javascript:;" class="editnote list-praise" target="_blank"> <i class="icon icon-edit"></i> <em>编辑</em> </a> <a title="删除此条笔记" href="javascript:;" class="delnote list-praise" data-cid=""> <i class="icon icon-del"></i> <em>删除</em> </a>    <a title="赞" href="javascript:;" class="Jpraise list-praise " data-id="1931832"><span class="icon-thumb-revert"></span>  <em>0</em></a> </div> </div> </div> </li>  <li class="post-row js-find-txt" noteid="1928440"> <div class="notelist_headpic"> <a href="/u/4258093/courses" target="_blank"> <img src="//img4.mukewang.com/user/580a658a00014f0c01000100-80-80.jpg" width="40" height="40"> </a> </div> <div class="notelist_content"> <div class="u_name"> <a href="/u/4258093/courses" target="_blank">qq__49384258093</a> </div> <div class="js-notelist-content notelist-content mynote"> <pre>本地路径写死"/storage/emulated/0/Pictures/Screenshots/dog.jpg"</pre> <div class="notelist-content-more"> <a href="javascript:;" class="js-toggle-content">[ 查看全文 ]</a> </div> </div> <div class="clearfix"> <a href="javascript:void(0);" class="sava_btn">保存</a> </div>   <div class="notelist-bottom clearfix"> <span title="1508704508" class="l timeago">3天前</span> <div class="notelist-actions"> <textarea style="display:none;">本地路径写死"/storage/emulated/0/Pictures/Screenshots/dog.jpg"</textarea>    <a title="采集" href="javascript:;" class="Jcollect list-praise " data-id="1928440|4258093"><i class="collect-text">采集</i><em>0</em></a>    <a title="赞" href="javascript:;" class="Jpraise list-praise " data-id="1928440"><span class="icon-thumb-revert"></span>  <em>0</em></a> </div> </div> </div> </li>  <li class="post-row js-find-txt" noteid="1925840"> <div class="notelist_headpic"> <a href="/u/5798702/courses" target="_blank"> <img src="//img4.mukewang.com/user/59b247d200016fc306400640-80-80.jpg" width="40" height="40"> </a> </div> <div class="notelist_content"> <div class="u_name"> <a href="/u/5798702/courses" target="_blank">weixin_旺米_0</a> </div> <div class="js-notelist-content notelist-content mynote"> <pre>1.加入权限
+ </pre> <div class="notelist-content-more"> <a href="javascript:;" class="js-toggle-content">[ 查看全文 ]</a> </div> </div> <div class="clearfix"> <a href="javascript:void(0);" class="sava_btn">保存</a> </div>   <div class="notelist-bottom clearfix"> <span title="1508467956" class="l timeago">5天前</span> <div class="notelist-actions"> <textarea style="display:none;">1.加入权限
+ </textarea>    <a title="采集" href="javascript:;" class="Jcollect list-praise " data-id="1925840|5798702"><i class="collect-text">采集</i><em>0</em></a>    <a title="赞" href="javascript:;" class="Jpraise list-praise " data-id="1925840"><span class="icon-thumb-revert"></span>  <em>0</em></a> </div> </div> </div> </li> </ul></div><div class="page note-list-page"></div></div>
+    </div>
+    <div id="wiki-content" class="list-tab-con" style="display:none;">
+        <div id="wikiLoadListData">
+        <div id="course_wiki" class="course_wiki"></div><div class="page wiki-list-page"></div></div>
+    </div>
+    <div id="mate-content" class="list-tab-con" style="display:none;">
+        <div id="mateLoadListData">
+        <div class="othterscode-container"></div><div class="page othterscode-list-page"></div></div>
+    </div>
+
+</div>
+  </div>
+  <div class="course-right clearfix">
+
+  <div class="js-recom-box"><div class="box mb40 all-attention-box">                        <h4>大家都关注</h4>                            <div class="js-all-attention all-attention"><a href="http://www.imooc.com/topic/android" target="_blank" data-id="38" class="orange fs18 normal">Android开发入门</a><a href="http://www.imooc.com/topic/androidsdk" target="_blank" data-id="17" class="blue fs20 normal">巧用Android热门第三方</a><a href="http://www.imooc.com/topic/uiandroid" target="_blank" data-id="42" class="green fs14 bold">Android开发入门</a><a href="http://www.imooc.com/topic/spring" target="_blank" data-id="23" class="yellow fs16 normal">spring 实例教程</a><a href="http://www.imooc.com/topic/zhaopin" target="_blank" data-id="44" class="orange fs18 normal">BAT大牛亲授面试技巧</a><a href="http://www.imooc.com/topic/fullstack" target="_blank" data-id="29" class="lake-blue fs20 bold">全栈工程师是怎样炼成的</a><a href="http://www.imooc.com/topic/aztest" target="_blank" data-id="18" class="blue fs14 normal">由浅入深实现Android自动化测试</a><a href="http://www.imooc.com/topic/class" target="_blank" data-id="36" class="green fs16 normal">编程入门</a><a href="http://www.imooc.com/topic/azmianshi" target="_blank" data-id="28" class="orange fs18 normal">Android面试题有哪些</a></div></div>
+<div class="box mb40 recom-course-list-box">                        <h4>推荐课程</h4>                        <ul class="js-recom-course recom-course-list clearfix"><li class="clearfix"><a href="http://coding.imooc.com/class/147.html" class="clearfix" target="_blank"><div class="l course-img" style="background-image: url(http://szimg.mukewang.com/59dc79420001530905400300-360-202.jpg);"><div class="cart-color green"></div></div><div class="l content-box">                            <p class="smalle-title">BAT大厂APP架构演进实践与优化之路</p>                            <p class="content-text" title=""></p>                            <div class="clearfix learn-detail">中级<span>·</span>72人在学</div>                        </div>                    </a>                </li><li class="clearfix"><a href="http://www.imooc.com/learn/543" class="clearfix" target="_blank"><div class="l course-img" style="background-image: url(http://www.imooc.com/courseimg/s/cover007_s.jpg);"><div class="cart-color green"></div></div><div class="l content-box">                            <p class="smalle-title">Android摄像头基础</p>                            <p class="content-text" title="本课程为Android摄像头的课程讲解。由浅入深，带领小伙伴们探索Camera的奥秘，带大家学会摄像头的摄像原理和底层的实现。">本课程为Android摄像头的课程讲解。由浅入深，带领小伙伴们探索Camera的奥秘，带大家学会摄像头的摄像原理和底层的实现。</p>                            <div class="clearfix learn-detail">中级<span>·</span>35061人在学</div>                        </div>                    </a>                </li><li class="clearfix"><a href="http://www.imooc.com/learn/683" class="clearfix" target="_blank"><div class="l course-img" style="background-image: url(http://www.imooc.com/courseimg/s/cover013_s.jpg);"><div class="cart-color green"></div></div><div class="l content-box">                            <p class="smalle-title">快速实现不一样的移动拼图</p>                            <p class="content-text" title="1、项目演示及搭建方法
+2、游戏逻辑判断
+（1）移动判断
+（2）手势判断
+（3）打乱顺序
+（4）判赢
+慕课网Android讨论群② 170368200">1、项目演示及搭建方法
+2、游戏逻辑判断
+（1）移动判断
+（2）手势判断
+（3）打乱顺序
+（4）判赢
+慕课网Android讨论群② 170368200</p>                            <div class="clearfix learn-detail">中级<span>·</span>13545人在学</div>                        </div>                    </a>                </li></ul></div></div>
+  <div class="wendalist js-right-wenda">
+    <div class="course-right-title">
+        <h3>猿问推荐</h3>
+        <a href="/wenda/?block_id=tuijian_yw" target="_blank" class="more">更多</a>
+    </div>
+
+      <ul>
+      </ul>
+  </div>
+  <div class="articlelist js-right-article" style="display: block;">
+    <div class="course-right-title">
+        <h3>手记推荐</h3>
+        <a href="/article/?block_id=tuijian_wz" target="_blank" class="more">更多</a>
+    </div>
+    <div class="course-right-content">
+
+    </div>
+    <ul><li><a href="/article/20828?block_id=tuijian_wz" target="_blank">一个程序员的运气有多重要</a></li><li><a href="/article/20816?block_id=tuijian_wz" target="_blank">[Android]自己动手做个拼图游戏</a></li><li><a href="/article/20811?block_id=tuijian_wz" target="_blank"><img src="http://img.mukewang.com/59ef80e40001776710800655-40-40.jpg" width="40" height="40"><div>所有的Android开发者都将转到Kotlin</div></a></li><li><a href="/article/20799?block_id=tuijian_wz" target="_blank"><img src="http://img.mukewang.com/59eed76b0001e9f508000720-40-40.jpg" width="40" height="40"><div>公告 | 整点开抢实战免单资格获奖名单</div></a></li><li><a href="/article/20794?block_id=tuijian_wz" target="_blank">程序员修炼之路（分享整理）</a></li></ul>
+  </div>  </div>
+</div>
+
+
+
+<div id="footer">
+    <div class="waper">
+        <div class="footerwaper clearfix">
+            <div class="followus r">
+                <a class="followus-weixin" href="javascript:;" target="_blank" title="微信">
+                    <div class="flw-weixin-box"></div>
+                </a>
+                <a class="followus-weibo" href="http://weibo.com/u/3306361973" target="_blank" title="新浪微博"></a>
+                <a class="followus-qzone" href="http://user.qzone.qq.com/1059809142/" target="_blank" title="QQ空间"></a>
+            </div>
+            <div class="footer_intro l">
+                <div class="footer_link">
+                    <ul>
+                        <li><a href="http://www.imooc.com/" target="_blank">网站首页</a></li>
+                        <li><a href="/about/cooperate" target="_blank" title="企业合作">企业合作</a></li>
+                        <li><a href="/about/job" target="_blank">人才招聘</a></li>
+                        <li> <a href="/about/contact" target="_blank">联系我们</a></li>
+                        <!--<li><a href="/subject/html" target="_blank">专题页面</a></li>-->
+                        <li><a href="/about/us" target="_blank">关于我们</a></li>
+                        <li> <a href="/about/recruit" target="_blank">讲师招募</a></li>
+                        <li> <a href="/user/feedback" target="_blank">意见反馈</a></li>
+                        <li> <a href="/about/friendly" target="_blank">友情链接</a></li>
+                    </ul>
+                </div>
+                <p>Copyright © 2017 imooc.com All Rights Reserved | 京ICP备 13046642号-2</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" charset="utf-8" src="/static/lib/ueditor/ueditor.final.min.js"></script>
+
+<script src="/passport/static/scripts/ssologin.js"></script>
+<script type="text/javascript" src="/static/sea-modules/seajs/seajs/2.1.1/sea.js"></script>
+<script type="text/javascript" src="/static/sea_config.js?v=201710251720"></script>
+<script type="text/javascript">seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
+
+
+
+<div style="display: none">
+  <script type="text/javascript">
+  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff0cfcccd7b1393990c78efdeebff3968' type='text/javascript'%3E%3C/script%3E"));
+  </script><script src=" http://hm.baidu.com/h.js?f0cfcccd7b1393990c78efdeebff3968" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=f0cfcccd7b1393990c78efdeebff3968" target="_blank"><img border="0" src="http://eiv.baidu.com/hmt/icon/21.gif" width="20" height="20"></a>
+</div><script type="text/javascript" src="/visitlog/index/user?v=1508985693984"></script><script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+<!--笔记弹出框-->
+
+<script type="text/imooc-tpl" id="course-note-tpl">
+   <div class="note-pop">
+        <div id="js-note-input-fake" class="textarea-wrap">
+            <textarea data-maxlength="1000" id="js-note-textarea" class="js-placeholder" name="" placeholder="请输入笔记内容..."></textarea>
+            <p class="note-text-counter"><span id="js-note-limit">0</span>/1000</p>
+        </div>
+        <div class="publish-note-btns input-btm clearfix">
+            <div class="verify-code clearfix"></div>
+                                            <div title="截图"  class="js-shot-video screen-btn" data-type="note">
+                    <span>截图</span>
+                </div>
+                                        <input type="button" title="发表" value="保存" id="js-note-submit" class="moco-btn moco-btn-green r" />
+            <!-- <label for="js-isshare"  class="label-checked r"><input type="checkbox" checked="checked" id="js-isshare" class="checked" /> 公开</label> -->
+        </div>
+</div>
+</script>
+<!--问答弹出框 通用-->
+<script type="text/imooc-tpl" id="course-qa-tpl">
+
+    <div class="qa-pop">
+
+            <div class="question-area">
+                <div class="qa-control qa-ipt-title">
+                    <input type="text" id="js-qa-title" maxlength="255" class="js-placeholder autocomplete" placeholder="请输入问题标题" />
+                </div>
+                <a href="http://www.imooc.com/wenda/detail/292353" target="_blank" class="another-meth">如何更好<br />的提问？</a>
+                <dl class="send-area-result">
+                </dl>
+            </div>
+
+        <div class="qa-control-wrap clearfix">
+            <div class="qa-control">
+                <div class="rich-text-editor">
+                    <textarea id="discuss-editor" >请输入讨论内容...</textarea>
+                </div>
+            </div>
+        </div>
+        <div id="js-discuss-btm" class="discuss-bottom input-btm clearfix pop-footer">
+            <div class="verify-code clearfix"></div>
+                                            <div title="截图"  class="js-shot-video screen-btn" data-type="qa">
+                    <span>截图</span>
+                </div>
+                                        <input id="js-discuss-submit" class="r moco-btn moco-btn-green" type="button" value="发布" />
+        </div>
+        <div id="use-credit-tip" class="use-credit-tip">
+            <span class="credit-info">本次提问将花费2个积分</span>
+            <a class="credit-rule" href="/about/faq?t=3" target="_blank">为什么扣积分？</a>
+        </div>
+    </div>
+
+</script>
+<!--积分弹出框-->
+<div class="integral-pop" id="no-credit">
+    <div class="pop-con">
+        <span class="icon-point"></span>
+                    <p>本次提问将花费2个积分</p>
+                <p>你的积分不足，无法发表</p>
+        <a class="integral-rule" href="/about/faq?t=3" target="_blank">为什么扣积分？</a>
+        <div class="ft clearfix">
+            <a href="javascript:void(0)" class="btn btn-green l cancel-cf">确认</a>
+            <a href="javascript:void(0)" class="btn btn-grey r cancel-cf">取消</a>
+        </div>
+    </div>
+</div>
+<div class="integral-pop" id="enough-credit">
+    <div class="pop-con">
+        <span class="icon-point"></span>
+                    <p>本次提问将花费2个积分</p>
+                <p>继续发表请点击 "确定"</p>
+        <a class="integral-rule" href="/about/faq?t=3" target="_blank">为什么扣积分？</a>
+        <div class="ft clearfix">
+            <a id="interal-use" href="javascript:void(0)" class="btn btn-green l">确认</a>
+            <a id="interal-cancel" href="javascript:void(0)" class="btn btn-grey r">取消</a>
+        </div>
+    </div>
+</div>
+
+<!--WIKI弹出框 通用-->
+<script type="text/imooc-tpl" id="course-wiki-tpl">
+    <div class="wiki-pop">
+
+        <div class='search_box clearfix'>
+            <input class='search_ipt' type='text' placeholder='输入你想要找的WiKi词条名称' />
+            <input type='button' value='搜索' class='search_btn' />
+            <a class='createwiki' href='/wiki/create' target="_blank">创建wiki</a>
+        </div>
+
+        <div id='js-search-area-result' class='search-area-result'>
+        </div>
+    </div>
+
+</script>
+
+<div id="video_mark" class="video_mark" style="display:none;"></div>
+<!--<div class="fixed-video js-fixed-video">-->
+    <!--<h3>点击按住该条进行拖动</h3>-->
+    <!--<div class="fixed-video-con"></div>-->
+<!--</div>-->
+<!--
+//此处结构在js里插入
+<div class="animate-mp" style="left:50%;top:50%">-->
+    <!--<p class="mp"><i>+</i><span class="num">8</span>MP</p>-->
+    <!--<p class="desc">haha</p>-->
+<!--</div>-->
+
+
+</body></html>

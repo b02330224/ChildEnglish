@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Laravel-简洁、优雅的PHP开发框架(PHP Web Framework)。- Laravel中文网（Laravel中国社区）</title>
+    <meta name="description" content="Laravel是一套简洁、优雅的PHP Web开发框架(PHP Web Framework) -- Laravel中文网">
+    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/9.0.0/styles/vs.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.min.css?1508333069353">
+    <script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-5399482037315154.js"></script>
+    <script>var _hmt = _hmt || [];</script>
+    <link rel="preload" href="https://adservice.google.com.hk/adsid/integrator.js?domain=www.golaravel.com" as="script">
+    <script type="text/javascript"
+            src="https://adservice.google.com.hk/adsid/integrator.js?domain=www.golaravel.com"></script>
+    <link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.golaravel.com" as="script">
+    <script type="text/javascript"
+            src="https://adservice.google.com/adsid/integrator.js?domain=www.golaravel.com"></script>
+    <link rel="prefetch" href="https://securepubads.g.doubleclick.net/static/3p_cookie.html">
+     <link rel="prefetch" href="https://securepubads.g.doubleclick.net/static/3p_cookie.html">
+     <link rel="stylesheet" href="/static/css/detail.css" />
+    <link rel="stylesheet" href="/static/css/video-js.min.css" />
+    <style id="fit-vids-style">
+    </style>
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+
+
+
+
+
+</head>
+<body class="">
+
+{% include 'header.html' %}
+
+<section class="content-wrap">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12 main-content">
+
+                        <article class="post">
+
+
+                            <div class="featured-media"><a href="">
+                                <div class="post-head"><h1 class="post-title">
+                                    <a href=""></a></h1>
+                                    <div class="post-meta"><span class="author"><a href=""
+                                                                                      target="_blank"></a>{{video.filename}} </span> •
+                                        <time class="post-date" datetime="2017年02月20日" title="2017年02月20日">2017年02月20日</time>
+                                    </div>
+                                </div>
+                                <div class="outer">
+                                    <span class="video_id" id={{ video.id }} style="display:none"> </span>
+                                    <video  id="my_video" class=" "  controls preload="none" controls="controls" width="700" height="500" poster="/static/img/gogo2.png" data-setup="{}" >
+                                        <source src="/static/{{ video.store_path}}"  type="video/mp4" >
+                                    </video>
+                                    <div class="rightside">
+                                       <div class="nano has-scrollbar">
+                                            <div class="nano-content" tabindex="0" style="right: -17px;">
+                                                <h2>{{ video.e_name }}</h2>
+                                                <ul>
+                                                    {% for video in videoList %}
+                                                    <li data-id="15869">
+                                                         <a href="{{ video.store_path }}"><i class=""><em class="icon-full"></em></i><em class="icon-video"></em>{{ video.filename }}</a>
+                                                    </li>
+                                                    {% endfor %}
+
+                                                </ul>
+
+
+                                            </div>
+
+
+                                           <div class="section-list" style="right: -360px;">
+                                                <div class="operator">
+                                                    <div class="op chapter"><em class="icon-menu"></em>章节</div>
+                                                    <div class="op notes"><em class="icon-note"></em>笔记</div>
+                                                    <div class="op question"><em class="icon-addques"></em>提问</div>
+
+                                                </div>
+
+
+
+
+                                                <div class="nano-pane" style="display: block;">
+                                                    <div class="nano-slider" style="height: 36px; transform: translate(0px, 43.4604px);"></div>
+                                                </div>
+                                            </div>
+                                       </div>
+
+                                    </div>
+
+
+                                 </a></div>
+
+
+                            <div class="post-content"><p></p>
+                                <p>描述：{{video.description}}</p>
+                                <p></p></div>
+                            <div class="post-permalink"><div
+                                    class="btn btn-default">浏览数：{{ video.num_views }}</div></div>
+
+                </article>
+
+
+            </main>
+        </div>
+          <div class="row">
+                <main class="col-md-10 main-content">
+
+
+                    <div class="course-left">
+                        <ul class="course-menu course-video-menu clearfix js-course-menu" data-ower="all"
+                            data-sort="last" style="position: absolute; left: 0px;">
+                            <li class="course-menu-item"><a class="" href="javascript:void(0)" id="plMenu">评论</a></li>
+                            <li class="course-menu-item"><a href="javascript:void(0)" id="qaMenu">问答</a></li>
+                            <li class="course-menu-item"><a href="javascript:void(0)" id="noteMenu"
+                                                            class="active">笔记</a></li>
+                            <!--
+                            <li class="course-menu-item"><a href="javascript:void(0)" id="wikiMenu">WIKI</a></li>
+                            -->
+                        </ul>
+                        <div id="disArea" class="lists-container list-wrap">
+                            <div id="pl-content" class="list-tab-con" style="display: block;">
+                                <div class="publish clearfix" id="discus-publish">
+                                    <div class="publish-wrap publish-wrap-pl">
+                                        <div class="pl-input-wrap clearfix">
+                                            <a href="/u/5324501" class="user-head l">
+                                                <img src="//img2.mukewang.com/591b05b300016ce701000100-100-100.jpg"
+                                                     alt="qq_越狱_3">
+                                            </a>
+                                            <div id="js-pl-input-fake" class="pl-input-inner l">
+                                                <textarea id="js-pl-textarea" class="js-placeholder"
+                                                          placeholder="扯淡、吐槽、表扬、鼓励……想说啥就说啥！"></textarea>
+                                                <span class="num-limit"><span id="js-pl-limit">0</span>/300</span>
+                                            </div>
+                                           <!-- <div class="clearfix"> </div>-->
+                                            <div class="pl-input-btm input-btm clearfix">
+                                                <div class="verify-code l"></div>
+                                                <input type="button" id="js-pl-submit" class="r course-btn"
+                                                       value="发表评论">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div id="plLoadListData">
+                                    <div class="pl-container">
+                                        <ul class="pl-ul">
+                                            {% for item in comment %}
+                                            <li class="pl-list clearfix">
+                                                <div class="pl-list-avator"><a href="/u/2699501/courses"
+                                                                               target="_blank"><img width="40"
+                                                                                                    height="40"
+                                                                                                    src="//img4.mukewang.com/566d6eac0001ee6801000100-40-40.jpg"
+                                                                                                    title={{ item.user.nickname }}></a>
+                                                </div>
+                                                <div class="pl-list-main">
+                                                    <div class="pl-list-nick"><a href="/u/2699501/courses"
+                                                                                 target="_blank">{{ item.user.nickname }}</a></div>
+                                                    <div class="pl-list-content">{{ item.content }}</div>
+                                                    <div class="pl-list-btm clearfix"><span class="pl-list-time l">{{item.time}}</span>
+                                                      </div>
+                                                </div>
+                                            </li>
+                                             {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <div class="page pl-list-page"></div>
+                                </div>
+
+
+                            </div>
+                            <div id="qa-content" class="list-tab-con" style="display:none">
+                                <div id="qaLoadListData">
+                                    <div class="sortlist">
+                                        <div class="ordertab clearfix"><a href="javascript:void(0)" hidefocus="true"
+                                                                          data-order="1"
+                                                                          class="quealltab onactive">全部</a> <a
+                                                href="javascript:void(0)" hidefocus="true" data-order="2"
+                                                class="quealltab ">精华</a></div>
+                                    </div>
+                                    <div class="answertabcon"></div>
+                                    <div class="page discuss-list-page"></div>
+                                </div>
+                            </div>
+                            <div id="note-content" class="list-tab-con" style="">
+                                <div id="noteLoadListData">
+                                    <div class="course-tool-bar clearfix js-select-state">
+                                        <div class="tool-left l js-all-state"><a href="javascript:;"
+                                                                                 class="sort-item active"
+                                                                                 data-sort="last">最新</a> <a
+                                                href="javascript:;" class="sort-item" data-sort="sugg">点赞</a></div>
+                                        <div class="tool-right r">
+                                            <div class="switch js-ower" data-sort="last">
+                                                <div class="switch-line"></div>
+                                                <div class="round js-lookme-round"></div>
+                                            </div>
+                                            <span class="tool-item">只看我的</span></div>
+                                    </div>
+                                    <div id="course_note" class="course_note">
+                                        <ul>
+                                            <li class="post-row js-find-txt" noteid="1928440">
+                                                <div class="notelist_headpic"><a href="/u/4258093/courses"
+                                                                                 target="_blank"> <img
+                                                        src="//img2.mukewang.com/user/580a658a00014f0c01000100-80-80.jpg"
+                                                        width="40" height="40"> </a></div>
+                                                <div class="notelist_content">
+                                                    <div class="u_name"><a href="/u/4258093/courses" target="_blank">qq__49384258093</a>
+                                                    </div>
+                                                    <div class="js-notelist-content notelist-content mynote">
+                                                        <pre>本地路径写死"/storage/emulated/0/Pictures/Screenshots/dog.jpg"</pre>
+                                                        <div class="notelist-content-more"><a href="javascript:;"
+                                                                                              class="js-toggle-content">[
+                                                            查看全文 ]</a></div>
+                                                    </div>
+                                                    <div class="clearfix"><a href="javascript:void(0);"
+                                                                             class="sava_btn">保存</a></div>
+                                                    <div class="notelist-bottom clearfix"><span title="1508704508"
+                                                                                                class="l timeago">1天前</span>
+                                                        <div class="notelist-actions"><textarea style="display:none;">本地路径写死"/storage/emulated/0/Pictures/Screenshots/dog.jpg"</textarea>
+                                                            <a title="采集" href="javascript:;"
+                                                               class="Jcollect list-praise "
+                                                               data-id="1928440|4258093"><i
+                                                                    class="collect-text">采集</i><em>0</em></a> <a
+                                                                    title="赞" href="javascript:;"
+                                                                    class="Jpraise list-praise " data-id="1928440"><span
+                                                                    class="icon-thumb-revert"></span> <em>0</em></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="post-row js-find-txt" noteid="1925840">
+                                                <div class="notelist_headpic"><a href="/u/5798702/courses"
+                                                                                 target="_blank"> <img
+                                                        src="//img2.mukewang.com/user/59b247d200016fc306400640-80-80.jpg"
+                                                        width="40" height="40"> </a></div>
+                                                <div class="notelist_content">
+                                                    <div class="u_name"><a href="/u/5798702/courses" target="_blank">weixin_旺米_0</a>
+                                                    </div>
+                                                    <div class="js-notelist-content notelist-content mynote"> <pre>1.加入权限
+                                 </pre>
+                                                        <div class="notelist-content-more"><a href="javascript:;"
+                                                                                              class="js-toggle-content">[
+                                                            查看全文 ]</a></div>
+                                                    </div>
+                                                    <div class="clearfix"><a href="javascript:void(0);"
+                                                                             class="sava_btn">保存</a></div>
+                                                    <div class="notelist-bottom clearfix"><span title="1508467956"
+                                                                                                class="l timeago">4天前</span>
+                                                        <div class="notelist-actions"> <textarea style="display:none;">1.加入权限
+                                 </textarea> <a title="采集" href="javascript:;" class="Jcollect list-praise "
+                                                data-id="1925840|5798702"><i class="collect-text">采集</i><em>0</em></a>
+                                                            <a title="赞" href="javascript:;"
+                                                               class="Jpraise list-praise " data-id="1925840"><span
+                                                                    class="icon-thumb-revert"></span> <em>0</em></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="page note-list-page"></div>
+                                </div>
+                            </div>
+                            <div id="wiki-content" class="list-tab-con" style="display:none;">
+                                <div id="wikiLoadListData">
+                                    <div id="course_wiki" class="course_wiki"></div>
+                                    <div class="page wiki-list-page"></div>
+                                </div>
+                            </div>
+                            <div id="mate-content" class="list-tab-con" style="display:none;">
+                                <div id="mateLoadListData">
+                                    <div class="othterscode-container"></div>
+                                    <div class="page othterscode-list-page"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </main>
+          </div>
+
+    </div>
+</section>
+
+
+<div class="moco-modal-layer fixed" style="z-index: 900; visibility: visible; left: 441px; top: 500px; opacity: 1;">
+    <div class="moco-modal-title">
+        <div class="moco-modal-draggable"><span>笔记</span><a href="javascript:void(0)"
+                                                            class="moco-icon-close moco-modal-close js-modal-close"></a>
+        </div>
+    </div>
+    <div class="moco-modal-inner">
+        <div class="moco-modal-dialog" style="display: block;">
+            <div class="note-pop">
+                <div id="js-note-input-fake" class="textarea-wrap">
+                    <textarea data-maxlength="1000" id="js-note-textarea" class="js-placeholder" name=""
+                              placeholder="请输入笔记内容..."></textarea>
+                    <p class="note-text-counter"><span id="js-note-limit">0</span>/1000</p>
+                </div>
+                <div class="publish-note-btns input-btm clearfix">
+                    <div class="verify-code clearfix"></div>
+                    <div title="截图" class="js-shot-video screen-btn" data-type="note">
+                        <span>截图</span>
+                    </div>
+                    <input type="button" title="发表" value="保存" id="js-note-submit" class="moco-btn moco-btn-green r">
+                    <!-- <label for="js-isshare"  class="label-checked r"><input type="checkbox" checked="checked" id="js-isshare" class="checked" /> 公开</label> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    $(function(){
+                 $("#note-content").hide();
+                 $(".moco-modal-layer").hide();
+                  $(".nano-content").hide();
+
+
+           });
+
+
+           $("#noteMenu").click(function () {
+
+               $("#pl-content").hide();
+                $("#note-content").show();
+
+//                $(this).next().removeClass("hide");
+//                $(this).parent().siblings().children(".con").addClass("hide");
+           });
+
+             $("#plMenu").click(function () {
+
+                $("#pl-content").show();
+                $("#note-content").hide();
+             });
+
+
+             var j=0
+              $(".chapter").click(function () {
+
+                $(".nano-content").toggle();
+                 if (j == 0)
+                   {
+
+                   $(".chapter").css("background-color", "red")
+                       j++
+                   }
+                   else
+                   {
+                        $(".chapter").css("background-color", "#363C40")
+                       j=0
+                   }
+
+             });
+
+
+                  var i = 0
+               $(".notes").click(function () {
+
+
+                   $(".moco-modal-layer").toggle();
+
+                   if (i == 0)
+                   {
+
+                   $(".notes").css("background-color", "red")
+                       i++
+                   }
+                   else
+                   {
+                        $(".notes").css("background-color", "#363C40")
+                       i=0
+                   }
+
+             });
+
+                  $("#js-pl-submit").click(function () {
+                      console.log($("#js-pl-textarea").val())
+                     $.ajax({
+                               type: "POST",
+                               url: "/pl/",
+                               data: "comment="+$("#js-pl-textarea").val()+"&video_id="+$(".video_id").attr("id"),
+                               success: function(data){
+                                   console.log(data);
+                                   $("#js-pl-textarea").val("");
+                                  var data =  $.parseJSON(data)
+                                   if (data.status =='ok'){
+
+                                        $(".pl-ul").prepend("<li class=\"pl-list clearfix\">\n" +
+                                            "                                                <div class=\"pl-list-avator\"><a href=\"/u/2699501/courses\"\n" +
+                                            "                                                                               target=\"_blank\"><img width=\"40\"\n" +
+                                            "                                                                                                    height=\"40\"\n" +
+                                            "                                                                                                    src=\"//img4.mukewang.com/566d6eac0001ee6801000100-40-40.jpg\"\n" +
+                                            "                                                                                                    title="+data.nickname+"></a>\n" +
+                                            "                                                </div>\n" +
+                                            "                                                <div class=\"pl-list-main\">\n" +
+                                            "                                                    <div class=\"pl-list-nick\"><a href=\"/u/2699501/courses\"\n" +
+                                            "                                                                                 target=\"_blank\">"+ data.nickname +"</a></div>\n" +
+                                            "                                                    <div class=\"pl-list-content\">"+ data.content +"</div>\n" +
+                                            "                                                    <div class=\"pl-list-btm clearfix\"><span class=\"pl-list-time l\">"+ data.time +"</span>\n" +
+                                            "                                                      </div>\n" +
+                                            "                                                </div>\n" +
+                                            "                                            </li>")
+                                   }
+
+                                  }
+                            });
+                      }
+                  );
+
+
+              /*  $(".notes").toggle(function () { $(".notes").css("background-color","red");},
+                                   function () { $(".notes").css("background-color","#363C40")});
+
+                 $(".chapter").toggle(function () { $(".chapter").css("background-color","red");},
+                                   function () { $(".chapter").css("background-color","#363C40")});
+            */
+
+</script>
+
+
+</body>
+</html>
