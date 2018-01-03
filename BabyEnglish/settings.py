@@ -106,10 +106,12 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    ("css", os.path.join(STATIC_ROOT,'css')),
+    ("js", os.path.join(STATIC_ROOT,'js')),
+    ("png", os.path.join(STATIC_ROOT,'img')),
 )
 
 
