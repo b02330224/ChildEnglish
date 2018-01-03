@@ -26,4 +26,9 @@ urlpatterns = [
     url(r'^index/$', views.list),
     url(r'^index/(?P<username>\w+)/$',views.list),
     url(r'^pl/$', views.pl),
+    
 ]
+
+urlpatterns += patterns('',
+ (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+ )
