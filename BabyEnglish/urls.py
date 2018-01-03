@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import *
 from django.contrib import admin
 from video import  urls, views
+from django.conf.urls.defaults import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
