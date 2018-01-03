@@ -24,6 +24,7 @@ SECRET_KEY = '(uth-(6)b3_+!hjk6jt58z2@6h%)1*-n+@u(5g(xlp5gvbl!iw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['childenglish.herokuapp.com',]
 
@@ -106,12 +107,10 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
-    ("css", os.path.join(STATIC_ROOT,'css')),
-    ("js", os.path.join(STATIC_ROOT,'js')),
-    ("png", os.path.join(STATIC_ROOT,'img')),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 
