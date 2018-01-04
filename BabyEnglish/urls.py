@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import *
 from django.contrib import admin
 from video import  urls, views
-from django.conf.urls.defaults import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,9 +26,7 @@ urlpatterns = [
     url(r'^index/$', views.list),
     url(r'^index/(?P<username>\w+)/$',views.list),
     url(r'^pl/$', views.pl),
+    #url(r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     
 ]
 
-urlpatterns += patterns('',
- (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
- )
