@@ -20,5 +20,5 @@ from video import views
 urlpatterns = [
 
     url(r'list/$', views.list),
-    url(r'detail/(\d-\d).mp4$', views.detail),
+    url(r'detail/(\d-\d).flv$', views.detail),
 ]
