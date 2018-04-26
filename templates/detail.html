@@ -60,9 +60,19 @@
                                 </div>
                                 <div class="outer">
                                     <span class="video_id" id={{ video.id }} style="display:none"> </span>
+									<span type='text' class="video_id" id='vfile' style="display:none">{{video.store_path}}</span>
+									
+									{% comment %}
+									
                                     <video  id="my_video" class=" "  controls preload="none" controls="controls" width="700" height="500" poster="/static/img/gogo2.png" data-setup="{}" >
                                         <source src="/static/{{ video.store_path}}"  type="video/mp4" >
                                     </video>
+									
+									{% endcomment%}	
+								  <div id="video1" style="width:700px;height:500px;display:inline-block;float:left" class=""><img        src="/static/img/gogo2.png"/>
+									</div>;
+
+													
                                     <div class="rightside">
                                        <div class="nano has-scrollbar">
                                             <div class="nano-content" tabindex="0" style="right: -17px;">
@@ -436,6 +446,33 @@
 
 </script>
 
+ <script  type="text/javascript" src="/static/ckplayer/ckplayer/ckplayer.js"  charset="utf-8"></script>
+
+
+<script type="text/javascript"  charset="utf-8" >
+
+function playVedio( vfile){
+var flashvars={
+        f:vfile,
+        c:0,
+        b:1,
+          h:4
+    };
+    var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
+    CKobject.embedSWF('/static/ckplayer/ckplayer/ckplayer.swf','video1','ckplayer_a1','100%','100%',flashvars,params);
+
+}
+
+
+$(document).ready(function(){
+     vfile = '/static/'+$('#vfile').text();
+    console.log('dddddddddddddd'+vfile);
+playVedio(vfile );
+    }
+)
+
+      
+  </script>
 
 </body>
 </html>

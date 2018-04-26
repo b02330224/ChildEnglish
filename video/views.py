@@ -43,7 +43,7 @@ def list(request, username=None):
 
 def detail(request, path):
 
-    video= Video.objects.get(store_path = path+".mp4")
+    video= Video.objects.get(store_path = path+".flv")
     num = video.num_views+1
     video.num_views = num
     video.save()
