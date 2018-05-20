@@ -1,0 +1,87 @@
+.nlist_nr {
+    clear: both;
+    line-height: 200%;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    width: 725px;
+    margin:  0 auto;
+}
+
+.list_right_nr1 {
+    width: 725px;
+}
+
+.list_right_nr1 ul {
+    float: left;
+    font-size: 14px;
+    line-height: 150%;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 100%;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+
+
+.list_right_nr1 li {
+    float: left;
+    line-height: 2rem;
+}
+.nlist_nr li {
+    display: inline;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 320px;
+    margin: 0 10px;
+}
+.flashul li {
+    width: 120px;
+}
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.webusermenu a:link, a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sortimg {
+    width: 104px;
+    height: 104px;
+    border: 2px solid #D4E3F2;
+}
+
+img {
+    border: 0;
+}

@@ -77,11 +77,26 @@
         }
 
         .main-navigation .menu li a {
-            color: #505050;
+           /* color: #505050;
             line-height: 4em;
             display: block;
-            padding: 0 21px
+            padding: 0 21px;*/
+             font-size: 1.60rem;
+            color: #c87d90;
+            text-decoration: none;
+              margin-right: 2rem;
+            display: inline-block;
+            font-family: Heiti, "Microsoft Yahei";
+            white-space: nowrap;
+             padding: 0 21px;
+            line-height: 4em;
+
         }
+        .main-navigation .menu li  a:hover {
+              color: #657E7C;
+             text-decoration: none;
+        }
+
 
         .navbar-header {
             text-align: center

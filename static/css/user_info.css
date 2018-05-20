@@ -1,0 +1,413 @@
+ul, ol {
+    list-style: none;
+}
+
+.personal_list {
+    margin-top: 0;
+}
+.list {
+    height: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    min-height: 200px;
+    overflow: hidden;
+    clear: both;
+    position: relative;
+}
+.wp {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    clear: both;
+}
+
+.list .right {
+    width: 280px;
+    float: right;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.personal_list .right {
+    width: 945px;
+    float: right;
+    overflow: hidden;
+}
+
+.personal_list {
+    margin-top: 0;
+}
+
+.personal_list .left {
+    width: 210px;
+    float: left;
+    background: #f8f8f8;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+
+.personal_list .left li {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    color: #3a3a3a;
+    border-bottom: 1px solid #eaeaea;
+    background: url(../images/arrow.png) no-repeat 95% center;
+}
+
+.personal_list .left li:last-child {
+    border: 0;
+}
+
+.personal_list .left li:hover, .personal_list .left .active2 {
+    background: #fff url(../images/arrow_g.png) no-repeat 95% center;
+    border-left: 2px solid #717171;
+}
+
+.personal_list .left a {
+    width: 90%;
+    margin: 0 5%;
+    height: 100%;
+    display: block;
+    color: #3a3a3a;
+}
+
+.personal_list .left .dropwrap {
+    height: auto;
+    overflow: hidden;
+    background: url(../images/drop_plus.png) no-repeat 95% 20px;
+    width: 100%;
+}
+
+.personal_list .left .dropwrap:hover {
+    border: 0;
+    background: url(../images/drop_plus.png) no-repeat 95% 20px;
+}
+
+.personal_list .left .dropwrap:hover .drophead {
+    background: #fff url(../images/drop_plus_g.png) no-repeat 95% 20px;
+    border-left: 2px solid #717171;
+}
+
+.personal_list .left .drophead {
+    margin: 0;
+    text-indent: 10px;
+    width: 100%;
+}
+
+.personal_list .left .drop a {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+.personal_list .left .drop a:hover, .personal_list .drop .active {
+    color: #717171;
+}
+
+.personal_list .left .dropwrap .drop {
+    display: none;
+    font-size: 14px;
+    color: #6f6f6f;
+    text-indent: 20px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+
+.personal_des .inforcon {
+    border: 1px solid #eaeaea;
+    height: auto;
+    overflow: hidden;
+    width: 943px;
+    border-top: 0;
+}
+
+.personal_list  .inforcon .right {
+    width: 650px !important;
+    height: 100%;
+    border-left: 1px solid #eaeaea;
+    font-size: 14px;
+    margin: 0;
+}
+
+.personal_list  .inforcon .right > li, .inputs li {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #eaeaea;
+    text-indent: 20px;
+    color: #a9a9a9;
+    position: relative;
+}
+
+.personal_list  .inforcon .right > li {
+    float: left;
+    width: 100%;
+}
+
+.personal_list .inforcon .li-col3 li {
+    float: left;
+    width: 33.3%;
+}
+
+.inputs select {
+    margin-left: 16px !important;
+}
+
+.personal_list  .inforcon .right .pics {
+    height: 100px;
+    line-height: 100px;
+}
+
+.personal_list .inforcon .right .pics label {
+    display: block;
+    left: 90px;
+    top: 25px;
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.personal_list .inforcon .right .pics label .pic {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    float: left;
+}
+
+.personal_list .inforcon .right .pics label .pic img {
+    width: 100%;
+}
+
+.personal_list .inforcon .right .pics label .changebtn {
+    width: 435px;
+    float: right;
+    margin-top: 10px;
+}
+
+.personal_list .inforcon .right .pics label #up_img {
+    opacity: 1;
+}
+
+.personal_list .inforcon .right li div {
+    line-height: 20px;
+    text-indent: 0;
+}
+
+.personal_list .inforcon .right li input[type=text] {
+    color: #3d3d3d;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 20px;
+    text-indent: 10px;
+    width: 300px;
+    background: #fafafa;
+}
+
+.personal_list .inforcon .right li.errorput input[type=text] {
+}
+
+.personal_list .inforcon .right li .error {
+    top: 15px;
+    width: 300px !important;
+    left: 110px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background: #ff7800;
+}
+
+.personal_list .inforcon .right li select {
+    color: #3d3d3d;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 20px;
+    text-indent: 2px;
+    width: 300px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+}
+
+.personal_list .inforcon .right li input:focus {
+    border-color: #717171;
+}
+
+.personal_list .inforcon .right li span {
+    color: #171717;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.personal_list .inforcon .right li textarea:focus {
+    border-color: #717171;
+}
+
+.personal_list .inforcon .right li label {
+    width: 50px;
+}
+
+.personal_list .inforcon .right li.upload label {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+}
+
+.personal_list .inforcon .right li.upload label .pic {
+    line-height: normal;
+}
+
+.personal_list .inforcon .right li.upload label input[type=file] {
+    top: 30px;
+}
+
+.personal_list .inforcon .right li label input[type='radio'] {
+    margin-right: 5px;
+}
+
+.personal_list  input.borderno {
+    border: 0;
+    margin-right: 10px;
+    width: 252px !important;
+    display: inline;
+    text-indent: 0;
+}
+
+.personal_list .inrcon .right li .green {
+    text-indent: 0;
+    color: #717171;
+    cursor: pointer;
+}
+
+.personal_list  .right .focus input {
+    background: #fff !important;
+    color: #717171 !important;
+}
+
+.personal_list  .right .button {
+    text-align: center;
+}
+
+.personal_list  .right .button input {
+    cursor: pointer;
+    background: #717171;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    border: 0;
+    height: 35px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.personal_list  .right .button .cancle {
+    background: #a5a5a5;
+}
+
+.personal_list  .right .city {
+    display: inline;
+    margin-left: 16px;
+}
+
+.personal_list  .right .photo {
+    height: 700px;
+}
+
+.personal_list  .wrapper li {
+    text-indent: 0;
+}
+
+.personal_list  .wrapper span {
+    text-indent: 0;
+    color: #fff !important;
+}
+
+.p_infor_city {
+    position: relative;
+}
+
+.p_infor_city .citys {
+    position: absolute;
+    left: 95px;
+    margin-top: 20px;
+    top: 0;
+}
+
+.p_infor_city .citys .dizhi_t {
+    width: 400px;
+}
+
+.p_infor_city .dizhi_t .dizhi_t_2 {
+    width: 100%;
+}
+
+.p_infor_city .city {
+    left: 75px;
+    margin-top: 20px;
+}
+
+.p_infor_city .city .option, .p_infor_city .city select {
+    width: auto !important;
+    display: inline;
+    float: left;
+}
+
+.personal_list .left a {
+    width: 90%;
+    margin: 0 5%;
+    height: 100%;
+    display: block;
+    color: #3a3a3a;
+        text-decoration: none;
+}
+.btn-w100 {
+    width: 100px;
+}
+.btn-green {
+    background: #717171;
+}
+.button {
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 auto;
+    border: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: #fff !important;
+    cursor: pointer;
+    text-align: center;
+    text-indent: 0 !important;
+}
+
+.personal_list .head h1 {
+    display: inline;
+    color: #717171;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    color: #202020;
+}
+
+.personal_des .head {
+    border-bottom: 1px solid #eaeaea;
+    background: #f8f8f8;
+}
+.personal_des .head {
+    border-bottom: 1px solid #eaeaea;
+    background: #f8f8f8;
+    color: #333;
+    height: 50px;
+    line-height: 50px;
+    text-indent: 20px;
+    font-size: 14px;
+}
+
+}

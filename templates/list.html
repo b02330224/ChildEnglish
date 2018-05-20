@@ -12,7 +12,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" href="/assets/icons/favicon.ico">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/9.0.0/styles/vs.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/screen.min.css?1508333069353">
@@ -33,105 +33,42 @@
 
 {% include 'header.html' %}
 
-<section class="content-wrap">
+<div class="content">
     <div class="container">
+        <div class="col-md-12 horiz-img-region clearfix gw_contair">
 
-        <div class="row">
+                {% for video in videos  %}
 
-
-            <main class="col-md-8 main-content">
-                  {%  for v in videos %}
-                <article class="post">
-                     <div class="featured-media"><a id='yy' href="/video/detail/{{v.store_path}}">
-
-                        {% comment %}
-                        <video src="/static/{{v.store_path}}" controls="controls" width="200" height="100" >
-                        your browser does not support the video tag
-                        </video>
-                        {% endcomment %}
-                         <div>
-{#                         <embed id='embed' src="{{ v.url_path }}"  allowFullScreen="true" wmode="transparent " ShowTracker="false" quality='low' width='200' height='100' align='top' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>#}
-                             <image src="{{ v.image_path }}" width='200' height='100'></image>
-                         </div>
-                    </a></div>
-                     <div class ="post-rightbar">
-                        <div class="post-head"><h1 class="post-title"><a
-                                href=""></a></h1>
-                            <div class="post-meta"><span class="author">名称:{{v.filename}} <a href=""
-                                                                              target="_blank"></a></span>
-
-                            </div>
+                <li class="horiz-img-item animated" style="animation-delay: 1s;">
+                    <div class="thumbnail">
+                        <img src="{{ video.image_path }}">
+                        <div class="caption">
+                            <h3>{{video.filename}}</h3>
+                            <p>{{video.description}}</p>
                         </div>
+                    </div>
+                </li>
 
-                        <div class="post-content">
-                            <p>描述：{{v.description}} </p>
-                            <p></p></div>
-
-                        <div class="post-permalink"><div
-                                class="btn btn-default">浏览数：{{ v.num_views }}</div></div>
-                        <footer class="post-footer clearfix"></footer>
-
-                     </div>
-                </article>
-                  {% endfor %}
-
-
-            </main>
-
-
-        <!--
-            <nav class="pagination" role="navigation"><span class="page-number">第 1 页 / 共 7 页</span> <a class="older-posts" href="/page/2/"><i class="fa fa-angle-right"></i></a></nav>
-        -->
-            <aside class="col-md-4 sidebar">
-                <div class="widget"><h4 class="title">社区</h4>
-                    <div class="content community"><p>QQ群：462694081</p>
-                        <p><a href="http://wenda.golaravel.com/" title="Laravel中文网问答社区" target="_blank"
-                              onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '问答社区'])"><i
-                                class="fa fa-comments"></i> 问答社区</a></p></div>
-                </div>
-
-
-
-                <div class="widget"><h4 class="title">推荐教程</h4>
-                    <div class="content download"><a href="" class="btn btn-default btn-block"
-                                                     onclick=""> Go Go学英语
-                        </a></div>
-                </div>
-                <div class="widget"><h4 class="title">本月热门英语故事</h4>
-                    <a href="" id="top1" class="btn btn-default btn-block" target="_blank"></a>
-
-                    <a href=""  id="top2" class="btn btn-default btn-block"  target="_blank"></a>
-                    <a href=""  id="top3" class="btn btn-default btn-block" target="_blank"></a>
-
-                    <a href=""  id="top4" class="btn btn-default btn-block"  target="_blank"></a>
-
-                    <a href=""   id="top5" class="btn btn-default btn-block" target="_blank"> </a>
-
-
-
-                </div>
-                <div class="widget"><h4 class="title">本月热门视频</h4>
-                    <a href="" id="v_top1" class="btn btn-default btn-block" target="_blank"></a>
-
-                    <a href=""  id="v_top2" class="btn btn-default btn-block"  target="_blank"></a>
-                    <a href=""  id="v_top3" class="btn btn-default btn-block" target="_blank"></a>
-
-                    <a href=""  id="v_top4" class="btn btn-default btn-block"  target="_blank"></a>
-
-                    <a href=""   id="v_top5" class="btn btn-default btn-block" target="_blank"> </a>
-
-
-
-                </div>
-            </aside>
+             {% endfor %}
         </div>
     </div>
-</section>
+
+
+        <input type="hidden" name="csrfmiddlewaretoken" value="UK4mBswSKeDDMxP5nAfD3MsRMKNnGQpOpQsNPjXabY3TJfLprPDcQo8UVlKrcfOn">
+        <div class="gw_zz" style="display: none;">
+            <h3></h3>
+            <p class="gw_qq"></p>
+            <p class="gw_secret"></p>
+            <img src="" alt="">
+        </div>
+
+    </div>
+
 
 {% for item in items %}
     {# Each "contact" is a Contact model object. #}
     {{ item.full_name|upper }}<br />
-
+    ...
 {% endfor %}
 
 <div class="pagination">
@@ -152,7 +89,7 @@
 
 
 <div class="body-register" style="border-radius:0 0 5px 0;">
-    <div style="display:none" class="step-box"><span class="step step-1 step-active">1 填写手机号</span><span> &gt; </span><span
+    <div class="step-box"><span class="step step-1 step-active">1 填写手机号</span><span> &gt; </span><span
             class="step         step-2">2 填写基本资料</span></div>
 
     <div class="box-register" style="display:none;">
@@ -240,30 +177,6 @@
              }
 
     );
-
-
-    $(document).ready(function(){
-
-  $.get("/story/top5/",function(data_s,status){
-    alert("Data: " + data_s + "\nStatus: " + status);
-    data = JSON.parse(data_s)
-    $('#top1').text(data[0].fields["name"])
-      $('#top2').text(data[1].fields["name"])
-           $('#top3').text(data[2].fields["name"])
-           $('#top4').text(data[3].fields["name"])
-           $('#top5').text(data[4].fields["name"])
-  });
-
-  $.get("/video/top5/",function(data_v,status){
-    alert("Data: " + data_v + "\nStatus: " + status);
-    data = JSON.parse(data_v)
-    $('#v_top1').text(data[0].fields["filename"])
-      $('#v_top2').text(data[1].fields["filename"])
-           $('#v_top3').text(data[2].fields["filename"])
-           $('#v_top4').text(data[3].fields["filename"])
-           $('#v_top5').text(data[4].fields["filename"])
-  });
-});
 
     //taga=document.getElementById('yy')
     //taga.addEventListener("click", alertName, true);

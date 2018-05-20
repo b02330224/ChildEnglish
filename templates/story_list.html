@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/story_list.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+</head>
+<body>
+{% include 'header.html' %}
+<div class="nlist_nr"><!--3-->
+				<form id="qx" target="_self" method="post">
+										<div class="list_right_nr1">
+					<ul class="flashul">
+
+                        {% for story in storys %}
+                        <li>
+                            <a style="margin-bottom: 0px;padding-bottom: 0px" target="_blank" href="{% url 'story_detail' story.id %}">
+						<img src="{{ story.image }}" class="sortimg" alt="{{ story.name }}">
+                                <br>{{ story.name }}
+						</a>
+                        <div style="border-radius:5px  ;margin-top:-7px;border: 1px solid #f4645f; background: #f4645f; color: #fff;line-height:20px;width:70px;height: 20px">浏览：{{ story.num_views }}</div>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+					</div>
+									</form>
+
+                    <div class="pagination">
+                        <span class="step-links">
+                            {% if items.has_previous %}
+                                <a href="?page={{ items.previous_page_number }}">previous</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Page {{ items.number }} of {{ items.paginator.num_pages }}.
+                            </span>
+
+                            {% if items.has_next %}
+                                <a href="?page={{ items.next_page_number }}">next</a>
+                            {% endif %}
+                        </span>
+                    </div>
+
+				<div class="pagecontent" style="float:right;margin:6px 0px 0 0px;">
+				  				  <span class="pg">
+				  				  					<b>1</b>
+									  					<a href="/kj_yy_p2.html">2</a>				  					<a href="/kj_yy_p3.html">3</a>				  					<a href="/kj_yy_p4.html">4</a>				  				  				  <span class="pge">...</span>
+				  <a href="/kj_yy_p11.html">11</a>
+				  </span>
+				  				  <span class="pgnext"><a href="/kj_yy_p2.html">下一页</a></span>
+				  				  <span class="total">共488集</span>
+				</div>
+				</div>
+</body>
+</html>

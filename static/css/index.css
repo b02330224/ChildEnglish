@@ -54,10 +54,24 @@
         }
 
         .main-navigation .menu li a {
-            color: #505050;
+         /*   color: #505050;
             line-height: 4em;
             display: block;
-            padding: 0 21px
+            padding: 0 21px*/
+            font-size: 1.60rem;
+            color: #c87d90;
+            text-decoration: none;
+              margin-right: 2rem;
+            display: inline-block;
+            font-family: Heiti, "Microsoft Yahei";
+            white-space: nowrap;
+             padding: 0 21px;
+            line-height: 4em;
+
+        }
+        .main-navigation .menu li  a:hover {
+              color: #657E7C;
+             text-decoration: none;
         }
 
 
@@ -77,9 +91,9 @@
 
         }
         .post {
-            padding: 35px;
+            padding: 0px;
             background: #fff;
-            margin-bottom: 35px;
+            margin-bottom: 11px;
             position: relative;
             overflow: hidden
         }
@@ -115,6 +129,7 @@
 
         .post .featured-media {
             margin-top: 30px;
+            margin-right: 30px;
             width:220px;
             heigth: 120px;
             overflow: hidden;
@@ -249,3 +264,48 @@
             background: #303030;
             color: #fff
         }
+
+.main-navigation .menu li a #ai-logopl-alink {
+    font-size: 1.60rem;
+    color: #47484A;
+    ext-decoration: none;
+}
+
+.main-navigation .menu li a #ai-logopl-alink {
+    font-size: 1.6rem;
+    margin-right: 2rem;
+    display: inline-block;
+    font-family: Heiti, "Microsoft Yahei";
+    white-space: nowrap;
+}
+
+.horiz-img-region .horiz-img-item {
+    width: 240px;
+    height: 280px;
+    overflow: hidden;
+    float: left;
+    padding: 10px;
+    margin: 10px 20px 20px 10px;
+    text-decoration: none;
+    background-color: white;
+    -moz-box-shadow: 1px 1px 5px #888888;
+    box-shadow: 1px 1px 5px #888888;
+}
+
+
+.horiz-img-region .horiz-img-item h3 {
+    font-size: 18px;
+    margin: 10px 5px;
+    text-align: center;
+}
+
+.horiz-img-region .horiz-img-item p {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #b4bbbf;
+    width: 212px;
+}
+
+li {
+    list-style: none;
+}

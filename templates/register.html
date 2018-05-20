@@ -7,7 +7,7 @@
 <style>
 
     .body-register {
-        border-left: 1px dotted #808080;
+{#        border-left: 1px dotted #808080;#}
         margin: 0 auto;
     }
 
@@ -24,8 +24,28 @@
 }
   .pr{
       margin-bottom: 20px;
+      width: 300px;
+  }
+  .pr .nick{
+      width: 300px;
+  }
+  .pr .username{
+      width: 300px;
   }
 
+  .pr .rgpwd{
+      width: 300px;
+  }
+  .pr .email{
+      width: 300px;
+  }
+  .pr .rgcode{
+      width: 300px;
+  }
+    .pr .sign{
+      width: 300px;
+        height: 100px;
+  }
     * {
         margin: 0;
         padding: 0;
@@ -40,7 +60,7 @@
 
     <div class="box-register-detail " >
         <form action="/register/" method="post">
-                <div class="err-msg"></div>
+                <div class="err-msg" style="color: red">{{ error }}</div>
 
                 <p class="pr">  注册 </p>
                 <div class="pr"><input type="text" placeholder="用户名" class="username" name="username"></div>
@@ -50,7 +70,7 @@
 
 
                 <div class="pr"><input type="text" placeholder="昵称（10个汉字以内）" maxlength="10" class="nick" name="nickname"></div>
-                    <div class="pr"><input type="text" placeholder="邮箱" maxlength="10" class="" name="email"></div>
+                    <div class="pr"><input type="text" placeholder="邮箱" maxlength="30" class="email" name="email"></div>
                 <div class="pr"><input type="radio" name="sex" class="sex" value="false" checked="">女 <input type="radio"
                                                                                                                name="sex"
                                                                                                                class="sex"
@@ -99,7 +119,9 @@
                     </select>
 
                 </div>
+                <div class="pr"><input type="text" placeholder="地址" class="address" name="address"></div>
 
+                <div class="pr"><input type="text" placeholder="手机号码" class="mobile" name="mobile"></div>
                 <div class="pr"><textarea placeholder="签名档（100个汉字以内）" maxlength="100" class="sign"></textarea></div>
 
                 <div  class="pr">

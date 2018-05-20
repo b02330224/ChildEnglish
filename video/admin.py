@@ -13,7 +13,7 @@ admin.site.register(Video, VideoAdmin)
 
 
 class EpisodeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'nums',)
+    list_display = ('slug','name', 'description', 'nums',)
     list_filter = ('name',)
 
 

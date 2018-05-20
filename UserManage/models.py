@@ -8,9 +8,21 @@ import uuid
 class User(models.Model):
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=100)
-    sex = models.BooleanField()
+    # 自定义的性别选择规则
+    GENDER_CHOICES = (
+        ("male", u"男"),
+        ("female", u"女")
+    )
+    gender = models.CharField(
+        max_length=6,
+        verbose_name=u"性别",
+        choices=GENDER_CHOICES,
+        default="female")
+    # 地址
+    address = models.CharField(max_length=100, default="")
     city = models.CharField(max_length=100)
-    nickname = models.CharField(max_length=50, unique=True)
+    mobile = models.CharField(max_length=20, default="")
+    nickname = models.CharField(max_length=10, unique=True)
     is_admin = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     email = models.EmailField(max_length=50, null=True, blank=True)

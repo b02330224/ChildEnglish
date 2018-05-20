@@ -21,4 +21,7 @@ urlpatterns = [
 
     url(r'list/$', views.list),
     url(r'detail/(\d-\d).flv$', views.detail),
+    url(r'episode/(?P<slug>\d+)$', views.episode),
+    url(r'top5/$', views.top5),
+
 ]

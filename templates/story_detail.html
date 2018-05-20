@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="/static/css/story_list.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+</head>
+<body>
+{% include 'header.html' %}
+<div id="flashdiv_flashgame" style="margin: 0 auto; width: 670px;height: 480px;">
+    <embed allownetworking="internal" allowscriptaccess="never" type="application/x-shockwave-flash" src="{{ story.url_path }}" width="670" height="480" style="undefined" id="flashgame" name="flashgame" quality="high" menu="false" allowfullscreen="false" flashvars="load22=0" wmode="Opaque windowless" base=".">
+</div>
+</body>
+</html>
