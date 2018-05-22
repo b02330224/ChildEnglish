@@ -14,7 +14,7 @@ def login_required(func):
     """要求登录的装饰器"""
     def _deco(request, *args, **kwargs):
         if not request.session.get('username'):
-            return redirect('/login/')
+            return HttpResponse(json.dumps({"error":"没有登录"}))
         return func(request, *args, **kwargs)
     return _deco
 
@@ -52,7 +52,7 @@ def logout(request):
     if request.session.get('username'):
         del request.session['username']
         del request.session['admin']
-    return redirect('/login/')
+    return redirect('/index/')
 
 def register(request):
     if request.method == "POST":

@@ -7,6 +7,7 @@ from utils.tools import *
 import json
 from datetime import datetime
 from django.core import serializers
+from UserManage.views import login_required
 
 
 # Create your views here.
@@ -14,6 +15,7 @@ from django.core import serializers
 
 
 def list(request, username=None):
+    username = request.session.get('username', None)
     videos= Video.objects.all()
     paginator = Paginator(videos, 5)  # Show 25 contacts per page
 
@@ -43,7 +45,7 @@ def detail(request, path):
     video.save()
     videoList = Video.objects.filter(e_name=video.e_name)
     print("video", video)
-    username = request.session.get("username")
+    username = request.session.get("username", None)
     comment = Comment.objects.filter( video__filename=video.filename)
     print("comment", comment)
     return render(request, "detail.html",{'video': video,"videoList":videoList, "comment":comment, "username":username})
@@ -52,11 +54,11 @@ def episode(request, slug):
     episode = Episode.objects.get(slug=slug)
     videos = episode.videos.all()
     print("videos",videos)
-    username = request.session.get("username")
+    username = request.session.get("username", None)
     return render(request, "list.html", {'videos': videos,  "username": username})
 
 def top5(request):
-    username = request.session['username']
+    username = request.session.get('username', None)
     videos = Video.objects.all().order_by('-num_views')[0:5]
     data_v = serializers.serialize("json", videos)
     return HttpResponse(data_v)
@@ -71,6 +73,7 @@ class DateEncoder(json.JSONEncoder):
 
 json_1 = {'num': 1112, 'date': datetime.now()}
 
+@login_required
 def pl(request):
     comment = request.POST.get('comment')
     username = request.session.get("username", None)

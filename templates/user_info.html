@@ -74,11 +74,11 @@
 						    <i class="error-tips"></i>
                         </li>
 						<li>手&nbsp;&nbsp;机&nbsp;&nbsp;号：
-                            <input type="text" name="mobile" id="mobile" placeholder="请输入你的手机号码" value="{{ user.mobile }}" maxlength="10">
+                            <input type="text" name="mobile" id="mobile" placeholder="请输入你的手机号码" value="{{ user.mobile }}" maxlength="12">
                         </li>
                         <li>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：
-                        	<input class="borderno" type="text" name="email" readonly="readonly" value="{{ user.email }}"/>
-                            <span class="green changeemai_btn">[修改]</span>
+                        	<input class="text" type="text" name="email" value="{{ user.email }}"/>
+
                     	</li>
 						<li class="button heibtn">
 							<input type="submit" id="jsEditUserBtn" value="保存">

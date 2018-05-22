@@ -22,8 +22,8 @@
                                                  data-target="#main-menu"><span class="sr-only">Toggle navigation</span> </span></div>{% endcomment %}
                 <li class="collapse navbar-collapse" id="main-menu">
                     <ul class="menu">
-                        <li role="presentation" style="font-weight: bold;float:left"><a href="{% url 'index_user' username  %}" id="ai-logopl-alink" title="首页">首页</a></li>
-                        <li role="presentation" style="font-weight: bold;float:left"><a href="" id="ai-logopl-alink"title="学习视频"
+                        <li role="presentation" style="font-weight: bold;float:left"><a href="{% url 'index'   %}" id="ai-logopl-alink" title="首页">首页</a></li>
+                        <li role="presentation" style="font-weight: bold;float:left"><a href="{% url 'index'   %}" id="ai-logopl-alink"title="学习视频"
                                                    target="_blank"
                                                    onclick="">学习视频
                             </a></li>
@@ -38,19 +38,15 @@
                         <li role="presentation" style="font-weight: bold"><a href="" id="ai-logopl-alink" title="" target="_blank"
                                                    onclick="">
                             </a></li>
-                        {% if  username %}
+                        {% ifnotequal  username None %}
                            <div  class="personal">
                            <li >
                              <a href="javascript:void(0)" class="reg-btn-a" id="reg-link-a" style="font-weight: bold">{{ username }}</a>
                              </li>
                            <div class="userdetail">
                             	<dl>
-	                                <dt><img width="80" height="80" src=""/></dt>
-	                                <dd>
-	                                    <h2>{{ user.nick_name }}</h2>
-	                                    <p>{{ user.username }}</p>
-                                         <p>{{ user.id }}</p>
-	                                </dd>
+	                                <dt><img width="80" height="80" src="/static/img/check3.png"/></dt>
+
                                 </dl>
                                 <div class="btn">
                                <a class="personcenter fl" href="{% url 'users:userinfo' %}">进入个人中心</a>
@@ -69,13 +65,13 @@
                             <li style="float:right">
                                 <a href="/register/" class="reg-btn-a" id="reg-link-a" style="font-weight: bold;">注册</a>
                             </li>
-                        {% endif %}
+                       {% endifnotequal  %}
 
-                        <li role="presentation" style="font-weight: bold;float:right"><a href="" id="ai-logopl-alink" title="我们"
+                        <li role="presentation" style="font-weight: bold;float:right"><a href="javascript:void(0)" id="ai-logopl-alink" title="我们"
                                                    target="_blank"
                                                    onclick="">
                             我们</a></li>
-                        <li role="presentation" style="font-weight: bold;float:right"><a href="" id="ai-logopl-alink" title="问答社区" target="_blank"
+                        <li role="presentation" style="font-weight: bold;float:right"><a href="javascript:void(0)" id="ai-logopl-alink" title="问答社区" target="_blank"
                                                    onclick="">问答社区</a>
                         </li>
 

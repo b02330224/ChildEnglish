@@ -6,9 +6,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Laravel-简洁、优雅的PHP开发框架(PHP Web Framework)。- Laravel中文网（Laravel中国社区）</title>
-    <meta name="description" content="Laravel是一套简洁、优雅的PHP Web开发框架(PHP Web Framework) -- Laravel中文网">
-    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <title>Child English</title>
+    <meta name="description" content="Child English 专注于儿童英语教育的网站">
+    <meta name="keywords" content="Child English 专注于儿童英语教育的网站">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" href="/assets/icons/favicon.ico">
@@ -85,9 +85,9 @@
             <aside class="col-md-4 sidebar">
                 <div class="widget"><h4 class="title">社区</h4>
                     <div class="content community"><p>QQ群：462694081</p>
-                        <p><a href="http://wenda.golaravel.com/" title="Laravel中文网问答社区" target="_blank"
+                        <p><a href="javascript:void(0)" title="" target="_blank"
                               onclick="_hmt.push(['_trackEvent', 'big-button', 'click', '问答社区'])"><i
-                                class="fa fa-comments"></i> 问答社区</a></p></div>
+                                class="fa fa-comments"></i>问答社区</a></p></div>
                 </div>
 
 
@@ -245,23 +245,34 @@
     $(document).ready(function(){
 
   $.get("/story/top5/",function(data_s,status){
-    alert("Data: " + data_s + "\nStatus: " + status);
+   // alert("Data: " + data_s + "\nStatus: " + status);
     data = JSON.parse(data_s)
     $('#top1').text(data[0].fields["name"])
       $('#top2').text(data[1].fields["name"])
            $('#top3').text(data[2].fields["name"])
            $('#top4').text(data[3].fields["name"])
            $('#top5').text(data[4].fields["name"])
+       $('#top1').attr('href', "/story/detail/"+data[0].pk )
+        $('#top2').attr('href', "/story/detail/"+data[1].pk )
+        $('#top3').attr('href', "/story/detail/"+data[2].pk )
+        $('#top4').attr('href', "/story/detail/"+data[3].pk )
+        $('#top5').attr('href', "/story/detail/"+data[4].pk )
+
   });
 
   $.get("/video/top5/",function(data_v,status){
-    alert("Data: " + data_v + "\nStatus: " + status);
+    //alert("Data: " + data_v + "\nStatus: " + status);
     data = JSON.parse(data_v)
     $('#v_top1').text(data[0].fields["filename"])
       $('#v_top2').text(data[1].fields["filename"])
            $('#v_top3').text(data[2].fields["filename"])
            $('#v_top4').text(data[3].fields["filename"])
            $('#v_top5').text(data[4].fields["filename"])
+      $('#v_top1').attr('href', "/video/detail/"+data[0].fields["store_path"] )
+        $('#v_top2').attr('href', "/video/detail/"+data[1].fields["store_path"] )
+        $('#v_top3').attr('href', "/video/detail/"+data[2].fields["store_path"] )
+        $('#v_top4').attr('href', "/video/detail/"+data[3].fields["store_path"] )
+        $('#v_top5').attr('href', "/video/detail/"+data[4].fields["store_path"] )
   });
 });
 

@@ -8,20 +8,20 @@ from django.core import serializers
 # Create your views here.
 
 def detail(request, s_id):
-    username = request.session['username']
+    username = request.session.get('username', None)
     story = Story.objects.get(id=s_id)
     story.num_views= story.num_views+1
     story.save()
     return render(request, "story_detail.html", {'story': story, 'username':username})
 
 def top5(request):
-    username = request.session['username']
+    username = request.session.get('username', None)
     story = Story.objects.all().order_by('-num_views')[0:5]
     data_s = serializers.serialize("json", story)
     return HttpResponse(data_s)
 
 def list(request):
-    username = request.session['username']
+    username = request.session.get('username', None)
     storys= Story.objects.all()
     paginator = Paginator(storys, 10)  # Show 25 contacts per page
 

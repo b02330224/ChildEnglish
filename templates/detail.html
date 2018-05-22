@@ -6,9 +6,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Laravel-简洁、优雅的PHP开发框架(PHP Web Framework)。- Laravel中文网（Laravel中国社区）</title>
-    <meta name="description" content="Laravel是一套简洁、优雅的PHP Web开发框架(PHP Web Framework) -- Laravel中文网">
-    <meta name="keywords" content="Laravel中文社区,php框架,laravel中文网,php framework,restful routing,laravel,laravel php">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" href="/assets/icons/favicon.ico">
@@ -70,10 +70,11 @@
 
 
 
-
+{% comment %}
                                        <div id="video1" style="width:700px;height:500px;display:inline-block;float:left" class=""><img
-                                                    src="/static/img/gogo2.png"/></div>;
+                                                    src="/static/img/gogo2.png"/></div>;{% endcomment %}
 
+                                    <iframe src="{{ video.url_path }}" width="700px" height="500px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 
@@ -84,7 +85,7 @@
                                                 <ul>
                                                     {% for video in videoList %}
                                                     <li data-id="15869">
-                                                         <a href="{{ video.url_path }}"><i class=""><em class="icon-full"></em></i><em class="icon-video"></em>{{ video.filename }}</a>
+                                                         <a href="/video/detail/{{ video.store_path }}"><i class=""><em class="icon-full"></em></i>{{ video.filename }}</a>
                                                     </li>
                                                     {% endfor %}
 
@@ -98,7 +99,6 @@
                                                 <div class="operator">
                                                     <div class="op chapter"><em class="icon-menu"></em>章节</div>
                                                     <div class="op notes"><em class="icon-note"></em>笔记</div>
-                                                    <div class="op question"><em class="icon-addques"></em>提问</div>
 
                                                 </div>
 
@@ -312,7 +312,7 @@
 </section>
 
 
-<div class="moco-modal-layer fixed" style="z-index: 900; visibility: visible; left: 441px; top: 500px; opacity: 1;">
+<div class="moco-modal-layer fixed" style="z-index: 900; visibility: visible; left: 441px; top: 400px; opacity: 1;">
     <div class="moco-modal-title">
         <div class="moco-modal-draggable"><span>笔记</span><a href="javascript:void(0)"
                                                             class="moco-icon-close moco-modal-close js-modal-close"></a>
@@ -328,9 +328,7 @@
                 </div>
                 <div class="publish-note-btns input-btm clearfix">
                     <div class="verify-code clearfix"></div>
-                    <div title="截图" class="js-shot-video screen-btn" data-type="note">
-                        <span>截图</span>
-                    </div>
+
                     <input type="button" title="发表" value="保存" id="js-note-submit" class="moco-btn moco-btn-green r">
                     <!-- <label for="js-isshare"  class="label-checked r"><input type="checkbox" checked="checked" id="js-isshare" class="checked" /> 公开</label> -->
                 </div>
@@ -390,25 +388,34 @@
              });
 
 
-                  var i = 0
+               var i = 0
                $(".notes").click(function () {
 
 
-                   $(".moco-modal-layer").toggle();
+
 
                    if (i == 0)
                    {
 
-                   $(".notes").css("background-color", "red")
+                   $(".notes").css("background-color", "red");
+                   $(".moco-modal-layer").show();
                        i++
                    }
                    else
                    {
-                        $(".notes").css("background-color", "#363C40")
+                     $(".notes").css("background-color", "#363C40");
+                     $(".moco-modal-layer").hide();
                        i=0
                    }
 
              });
+
+               $("#js-note-submit").click(function () {
+                   $.post({
+
+                   })
+
+               });
 
                   $("#js-pl-submit").click(function () {
                       console.log($("#js-pl-textarea").val())
@@ -438,8 +445,18 @@
                                             "                                                </div>\n" +
                                             "                                            </li>")
                                    }
+                                   else if (data.error){
+                                       alert(data.error)
+                                   }
 
-                                  }
+
+                                  },
+                               error: function(jqXHR, textStatus, errorThrown){
+
+
+                                    //alert("请先登录");
+                               }
+
                             });
                       }
                   );
@@ -463,14 +480,22 @@
 function playVedio( vfile){
 
 var flashvars={
-        f:vfile,
-        c:0,
-        b:1,
-          h:4
+    //https://www.bilibili.com/video/av23726399/
+    //<iframe src="//player.bilibili.com/player.html?aid=23726399&cid=39649870&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+       // f:vfile,
+      // c:0,
+       // b:1,
+      //    h:4
+
+    f:"http://ws.acgvideo.com/7/44/preview_39649870-1-6.mp4",
+    loaded:'loadedHandler'
 
     };
-    var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
-    CKobject.embedSWF('/static/ckplayer/ckplayer/ckplayer.swf','video1','ckplayer_a1','100%','100%',flashvars,params);
+
+    //var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
+   // CKobject.embedSWF('/static/ckplayer/ckplayer/ckplayer.swf','video1','ckplayer_a1','100%','100%',flashvars,params);
+    var video=['http://ws.acgvideo.com/7/44/preview_39649870-1-6.mp4->video/mp4'];
+    CKobject.embed('/static/ckplayer/ckplayer/ckplayer.swf','video1','ckplayer_a1','100%','100%',false,flashvars,video);
 
 }
 
@@ -499,7 +524,7 @@ var flashvars={
 $(document).ready(function(){
      vfile = '/static/'+$('#vfile').text();
     console.log('dddddddddddddd'+vfile);
-playVedio(vfile );
+//playVedio(vfile );
     }
 )
 
