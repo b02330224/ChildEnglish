@@ -4,9 +4,9 @@
 项目后台采用django开发，前端采用bootstrap,jQuery.
 
 ## 在线演示地址 https://childenglish.herokuapp.com/
-![](https://github.com/b02330224/ChildEnglish/tree/master/screenshots/index.png)
-![](https://github.com/b02330224/ChildEnglish/tree/master/screenshots/videoplay.png)
-![](https://github.com/b02330224/ChildEnglish/tree/master/screenshots/storylist.png)
+![](https://github.com/b02330224/ChildEnglish/blob/master/screenshots/index.png)
+![](https://github.com/b02330224/ChildEnglish/blob/master/screenshots/videoplay.png)
+![](https://github.com/b02330224/ChildEnglish/blob/master/screenshots/storylist.png)
 
 ## 使用说明
 ```
