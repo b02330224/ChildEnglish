@@ -11,7 +11,7 @@ coreschema==0.0.4
 cryptography==2.0.3
 Django==1.11.5
 django-rest-swagger==2.1.2
-djangorestframework==3.6.4
+djangorestframework==3.11.2
 ForgeryPy==0.1
 idna==2.6
 itypes==1.1.0
