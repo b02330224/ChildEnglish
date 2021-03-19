@@ -15,7 +15,7 @@ djangorestframework==3.6.4
 ForgeryPy==0.1
 idna==2.6
 itypes==1.1.0
-Jinja2==2.9.6
+Jinja2==2.11.3
 kombu==4.1.0
 ldap3==2.3
 MarkupSafe==1.0
